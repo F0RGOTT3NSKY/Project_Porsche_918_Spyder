@@ -510,12 +510,12 @@ String implementar(String llave, String valor){
     Serial.println(valor);
     switch(valor.toInt()){
       case 1:
-        digitalWrite(OUTPUT1, LOW);
-        digitalWrite(OUTPUT2, HIGH);
-        digitalWrite(OUTPUT3, LOW);
-        digitalWrite(OUTPUT4, HIGH);
-        analogWrite(ENA,1023);
-        analogWrite(ENB,1023);
+        digitalWrite(ENA,HIGH);
+        digitalWrite(ENB,HIGH);
+        digitalWrite(OUTPUT1, HIGH);
+        digitalWrite(OUTPUT2, LOW);
+        digitalWrite(OUTPUT3, HIGH);
+        digitalWrite(OUTPUT4, LOW);
         delay (2000);
         digitalWrite(OUTPUT1, LOW);
         digitalWrite(OUTPUT2, LOW);
@@ -523,12 +523,12 @@ String implementar(String llave, String valor){
         digitalWrite(OUTPUT4, LOW);
         break;
       case -1:
-        digitalWrite(OUTPUT1, HIGH);
-        digitalWrite(OUTPUT2, LOW);
+        digitalWrite(ENA,HIGH);
+        digitalWrite(ENB,HIGH);
+        digitalWrite(OUTPUT1, LOW);
+        digitalWrite(OUTPUT2, HIGH);
         digitalWrite(OUTPUT3, HIGH);
         digitalWrite(OUTPUT4, LOW);
-        analogWrite(ENA,1023);
-        analogWrite(ENB,1023);
         delay (2000);
         digitalWrite(OUTPUT1, LOW);
         digitalWrite(OUTPUT2, LOW);
