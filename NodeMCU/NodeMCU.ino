@@ -505,8 +505,8 @@ String implementar(String llave, String valor){
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
-  else if (llave == "circle"){
-    Serial.println("Círculo");
+  else if (llave == "CIRCLE"){
+    Serial.println("CIRCLE");
     Serial.println(valor);
     switch(valor.toInt()){
       case 1:
@@ -540,8 +540,8 @@ String implementar(String llave, String valor){
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
-  else if (llave == "infinite"){
-    Serial.println("Infinito u Ocho");
+  else if (llave == "INFINITE"){
+    Serial.println("INFINITE");
     Serial.println(valor);
     digitalWrite(ENA,HIGH);
     digitalWrite(ENB,HIGH);
@@ -563,8 +563,8 @@ String implementar(String llave, String valor){
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
-  else if (llave == "zigzag"){
-    Serial.println("ZigZag");
+  else if (llave == "ZIGZAG"){
+    Serial.println("ZIGZAG");
     Serial.println(valor);
     digitalWrite(ENA,HIGH);
     digitalWrite(ENB,HIGH);
@@ -617,7 +617,42 @@ String implementar(String llave, String valor){
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
   else if(llave == "CUSTOM"){
-
+    Serial.println("CUSTOM");
+    Serial.println(valor);
+    digitalWrite(ENA,HIGH);
+    digitalWrite(ENB,HIGH);
+    digitalWrite(OUTPUT1, LOW);
+    digitalWrite(OUTPUT2, LOW);
+    digitalWrite(OUTPUT3, HIGH);
+    digitalWrite(OUTPUT4, LOW);
+    delay (700);
+    digitalWrite(OUTPUT1, LOW);
+    digitalWrite(OUTPUT2, LOW);
+    digitalWrite(OUTPUT3, LOW);
+    digitalWrite(OUTPUT4, HIGH);
+    delay (700);
+    digitalWrite(OUTPUT1, LOW);
+    digitalWrite(OUTPUT2, LOW);
+    digitalWrite(OUTPUT3, LOW);
+    digitalWrite(OUTPUT4, LOW);
+    delay(100);
+    digitalWrite(OUTPUT1, LOW);
+    digitalWrite(OUTPUT2, LOW);
+    analogWrite(OUTPUT3, 100);
+    digitalWrite(OUTPUT4, LOW);
+    delay(1000);
+    digitalWrite(OUTPUT1, LOW);
+    digitalWrite(OUTPUT2, LOW);
+    digitalWrite(OUTPUT3, LOW);
+    digitalWrite(OUTPUT4, LOW);
+    delay(100);
+    digitalWrite(OUTPUT1, LOW);
+    digitalWrite(OUTPUT2, LOW);
+    analogWrite(OUTPUT3, 100);
+    digitalWrite(OUTPUT4, LOW);
+    delay(1000);
+    
+    
       
   }
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
