@@ -543,24 +543,22 @@ String implementar(String llave, String valor){
   else if (llave == "infinite"){
     Serial.println("Infinito u Ocho");
     Serial.println(valor);
+    digitalWrite(ENA,HIGH);
+    digitalWrite(ENB,HIGH);
     digitalWrite(OUTPUT1, LOW);
     digitalWrite(OUTPUT2, HIGH);
-    digitalWrite(OUTPUT3, LOW);
-    digitalWrite(OUTPUT4, HIGH);
-    analogWrite(ENA,900);
-    analogWrite(ENB,1023);
+    digitalWrite(OUTPUT3, HIGH);
+    digitalWrite(OUTPUT4, LOW);
     delay (2000);
     digitalWrite(OUTPUT1, HIGH);
     digitalWrite(OUTPUT2, LOW);
     digitalWrite(OUTPUT3, HIGH);
     digitalWrite(OUTPUT4, LOW);
-    analogWrite(ENA,1023);
-    analogWrite(ENB,950);
     delay (2000);
     digitalWrite(OUTPUT1, LOW);
     digitalWrite(OUTPUT2, LOW);
     digitalWrite(OUTPUT3, LOW);
-    digitalWrite(OUTPUT4, LOW);  
+    digitalWrite(OUTPUT4, LOW); 
   }
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
