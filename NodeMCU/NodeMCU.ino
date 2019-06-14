@@ -577,7 +577,7 @@ String implementar(String llave, String valor){
     digitalWrite(OUTPUT2, HIGH);
     digitalWrite(OUTPUT3, HIGH);
     digitalWrite(OUTPUT4, LOW);
-    delay (700);
+    delay (500);
     digitalWrite(OUTPUT1, HIGH);
     digitalWrite(OUTPUT2, LOW);
     digitalWrite(OUTPUT3, HIGH);
@@ -587,7 +587,7 @@ String implementar(String llave, String valor){
     digitalWrite(OUTPUT2, HIGH);
     digitalWrite(OUTPUT3, HIGH);
     digitalWrite(OUTPUT4, LOW);
-    delay (700);
+    delay (500);
     digitalWrite(OUTPUT1, HIGH);
     digitalWrite(OUTPUT2, LOW);
     digitalWrite(OUTPUT3, HIGH);
@@ -597,7 +597,7 @@ String implementar(String llave, String valor){
     digitalWrite(OUTPUT2, HIGH);
     digitalWrite(OUTPUT3, HIGH);
     digitalWrite(OUTPUT4, LOW);
-    delay (700);
+    delay (500);
     digitalWrite(OUTPUT1, HIGH);
     digitalWrite(OUTPUT2, LOW);
     digitalWrite(OUTPUT3, HIGH);
@@ -607,7 +607,7 @@ String implementar(String llave, String valor){
     digitalWrite(OUTPUT2, HIGH);
     digitalWrite(OUTPUT3, HIGH);
     digitalWrite(OUTPUT4, LOW);
-    delay (700);
+    delay (500);
     digitalWrite(OUTPUT1, LOW);
     digitalWrite(OUTPUT2, LOW);
     digitalWrite(OUTPUT3, LOW);
@@ -625,35 +625,27 @@ String implementar(String llave, String valor){
     digitalWrite(OUTPUT2, LOW);
     digitalWrite(OUTPUT3, HIGH);
     digitalWrite(OUTPUT4, LOW);
-    delay (700);
+    delay (2000);
     digitalWrite(OUTPUT1, LOW);
     digitalWrite(OUTPUT2, LOW);
     digitalWrite(OUTPUT3, LOW);
     digitalWrite(OUTPUT4, HIGH);
-    delay (700);
+    delay (00);
+    digitalWrite(OUTPUT1, LOW);
+    digitalWrite(OUTPUT2, LOW);
+    digitalWrite(OUTPUT3, HIGH);
+    digitalWrite(OUTPUT4, LOW);
+    delay (500);
+    digitalWrite(OUTPUT1, HIGH);
+    digitalWrite(OUTPUT2, LOW);
+    digitalWrite(OUTPUT3, HIGH);
+    digitalWrite(OUTPUT4, LOW);
+    delay (500);
     digitalWrite(OUTPUT1, LOW);
     digitalWrite(OUTPUT2, LOW);
     digitalWrite(OUTPUT3, LOW);
     digitalWrite(OUTPUT4, LOW);
-    delay(100);
-    digitalWrite(OUTPUT1, LOW);
-    digitalWrite(OUTPUT2, LOW);
-    analogWrite(OUTPUT3, 100);
-    digitalWrite(OUTPUT4, LOW);
-    delay(1000);
-    digitalWrite(OUTPUT1, LOW);
-    digitalWrite(OUTPUT2, LOW);
-    digitalWrite(OUTPUT3, LOW);
-    digitalWrite(OUTPUT4, LOW);
-    delay(100);
-    digitalWrite(OUTPUT1, LOW);
-    digitalWrite(OUTPUT2, LOW);
-    analogWrite(OUTPUT3, 100);
-    digitalWrite(OUTPUT4, LOW);
-    delay(1000);
-    
-    
-      
+        
   }
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
