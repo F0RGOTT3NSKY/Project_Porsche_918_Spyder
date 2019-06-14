@@ -1,6 +1,12 @@
 # Proyecto_Porshe
-Proyecto de Taller de Programacion
+## Proyecto de Taller de Programacion
+
+Profesor:
+* Pedro Gutiérrez García
+
+---
+
 Integrantes:
-            -Adrian Gomez
-            -Julio Varela
-            -David Robles
+* Adrian Gomez
+* Julio Varela
+* David Robles
