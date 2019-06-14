@@ -5,7 +5,7 @@
 ---
 
 Profesor:
-* Pedro Gutiérrez García
+* Master Pedro Gutiérrez García.
 
 ---
 
