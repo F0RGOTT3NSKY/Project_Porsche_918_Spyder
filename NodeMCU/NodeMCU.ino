@@ -112,7 +112,6 @@ int ENB = 14; /* GPIO14(D5) ->Motor-B Enable */
  */
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 void setup() {
   Serial.begin(115200);
@@ -453,23 +452,28 @@ String implementar(String llave, String valor){
       case 'o':
         Serial.println("Luces Apagadas");
         data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
         break;
       case 'a':
         Serial.println("Luces Encendidas");
         data = B00000011;
+        shiftOut(ab, clk, LSBFIRST, data);
         break;
       case 'x':
         Serial.println("Luces encendidas según sensor");
         if(vsensor == 0){ 
           data = B00000011;
+          shiftOut(ab, clk, LSBFIRST, data);
         }
         else if(vsensor == 1){
-          data = B11111111; 
+          data = B11111111;
+          shiftOut(ab, clk, LSBFIRST, data);
         }
         break;
       default:
         Serial.println("Ninguna de las anteriores");
         data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
     }
     //data VARIABLE QUE DEFINE CUALES LUCES SE ENCIENDEN Y CUALES SE APAGAN
     shiftOut(ab, clk, LSBFIRST, data);
