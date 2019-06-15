@@ -30,6 +30,7 @@ class Test_Drive_Ventana_Principal:
         self.Headlights_On_TestDrive = Headlights_On_TestDrive
         self.Button_Headlights_On_TestDrive = Button_Headlights_On_TestDrive
         self.Button_Headlights_Off_TestDrive = Button_Headlights_Off_TestDrive
+        t = 0
         #           ____________________________
         #__________/DECLARACION DE FUNCIONES
         
@@ -51,10 +52,20 @@ class Test_Drive_Ventana_Principal:
         Button_Palanca_Dir_Izq_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Izq_TestDrive).place(x=275,y=298)
         Button_Palanca_Dir_Der_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Der_TestDrive).place(x=515,y=298)
         Button_Emergency_TestDrive = Button( Root_TestDrive, image = Emergency_TestDrive).place(x=420,y=370)
-        Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = btn(Button_Headlights_Off_TestDrive,Headlights_On_TestDrive)).place(x=1202,y=276)
-
-
-            
+        Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.btn).place(x=1202,y=276)
+        Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.btn1).place(x=1202,y=276)
+        
+        Root_TestDrive.mainloop()
+        
+    def btn(self):
+        print("Button Clicked")
+        Button_Headlights_On_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_On_TestDrive, command = self.btn1).place(x=1202,y=276)
+       
+    def btn1(self):
+        print("Button Clicked1")
+        Button_Headlights_Off_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_Off_TestDrive, command = self.btn).place(x=1202,y=276)
+        
+           
 #           ____________________________
 #__________/VARIABLES GLOBALES
 Root = Tk()
