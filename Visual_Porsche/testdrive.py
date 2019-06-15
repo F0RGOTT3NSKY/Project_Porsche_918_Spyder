@@ -1,4 +1,4 @@
-import tkinter
+import tkinter as tk
 from tkinter import *
 import time
 import threading 
@@ -40,34 +40,47 @@ direccional_derecha=Button(root,image=palanca_direccional2,command=lambda :threa
 
 
 
-    
+## LUCES DE PARQUEO ### 
 
 emergencia=PhotoImage(file="emergencia_mini.png")
-boton_luces_de_emergencia=Button(root,image=emergencia).place(x=420,y=370)
+boton_luces_de_emergencia=Button(root,image=emergencia,command=lambda :thread_parqueo()).place(x=420,y=370)
 
+# BOTON PARA IR ADELANTE# 
+flecha_arriba=PhotoImage(file="flecha_arriba.png")
+ir_adelante=Button(root,image=flecha_arriba).place(x=865,y=340)
 
-on_off=PhotoImage(file="on_off.png")
-luces_frontales=Button(root,image=on_off,command=lambda :thread_izquierda()).place(x=1202,y=276)
+# BOTON PARA REVERSA ##
+flecha_abajo=PhotoImage(file="flecha_abajo.png")
+ir_atras=Button(root,image=flecha_abajo).place(x=865,y=365)
 
-
-
-################## FUNCIONES PARA LOS BOTONES Y LABELS ##########################
-##funcion para las luces frontales ### 
-def izq():
-        global on_off
-        x=0
-        while(x<6):
-            on_off=PhotoImage(file='luz_alta_encendida.png')
-            luces_frontales=Button(root,image=on_off,command=lambda :thread_izquierda()).place(x=1202,y=276)
-            time.sleep(0.5)
-            on_off=PhotoImage(file='on_off.png')
-            luces_frontales=Button(root,image=on_off,command=lambda :thread_izquierda()).place(x=1202,y=276)
-            time.sleep(0.5)
-            x+=1
+################## FUNCIONES PARA LOS BOTONES Y LABELS ##########################################################################################################
+#### FUNCION PARA LAS LUCES FRONTALES ##########
+def btn_hide():
+    if b1.winfo_ismapped():
+        b2.place_forget()
+        b1.place(x=1202,y=275)
+       
+    else:
         
-def thread_izquierda():
-    p=threading.Thread(target=izq)
-    p.start()
+        b1.place(x=1202, y=275)
+        
+def btn_show():
+    if b2.winfo_ismapped():
+        b1.place_forget()
+        b2.place(x=1202,y=275)
+       
+    else:
+        
+        b2.place(x=1202, y=275)
+        
+## LUCES ENCENDIDAS ###         
+on=PhotoImage(file="on.png")
+b1 = tk.Button(root,image=on,command=btn_show)
+b1.place(x=1202, y=275)
+## LUCES APAGADAS ##
+off=PhotoImage(file="off.png")
+b2 = tk.Button(root,image=off, command=btn_hide)
+b2.place(x=1202, y=275)
 ### funcion para el direccional de la izquierda ###
     
 def direccion_izquierda():
@@ -106,21 +119,28 @@ def thread_direccion_derecha():
 
 
 ##### funcion para luces de parqueo ####### 
-def direccion_izquierda():
-        global dir_default
+def luces_parque():
+        global dir_default,dir_derecha_default
         x=0
         while(x<6):
             dir_default=PhotoImage(file='direccion_izquierda.png')
             direccional_default=Label(root,image=dir_default).place(x=1202,y=500)
+            dir_derecha_default=PhotoImage(file='direccion_derecha.png')
+            direccional_derecha_default=Label(root,image=dir_derecha_default).place(x=1340,y=500)
+            
             time.sleep(0.5)
+            
             dir_default=PhotoImage(file='direccion_izquierda_default.png')
             direccional_default=Label(root,image=dir_default).place(x=1202,y=500)
+            dir_derecha_default=PhotoImage(file="direccion_derecha_default.png")
+            direccional_derecha_default=Label(root,image=dir_derecha_default).place(x=1340,y=500)
             time.sleep(0.5)
             x+=1
         
-def thread_direccion_izquierda():
-    p=threading.Thread(target=direccion_izquierda)
+def thread_parqueo():
+    p=threading.Thread(target=luces_parque)
     p.start()
 
 
 root.mainloop()
+################################################################################################## FUNCIONES ##############################################################################
