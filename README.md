@@ -10,8 +10,8 @@ Profesor:
 ---
 
 Integrantes:
-* Adrian Gomez
-* Julio Varela
-* David Robles
+* Adrian Gomez Garro 2019219617
+* Julio Varela Venegas 2019008041
+* David Robles Vargas 2019046824
 
 ---

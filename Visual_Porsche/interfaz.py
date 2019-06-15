@@ -1,7 +1,7 @@
 ## VENTANA DE INICIO ##
 
 from tkinter import *
-import testdrive 
+ 
 
 root=Tk()
 root.title("Formula 1 - ADJ")
