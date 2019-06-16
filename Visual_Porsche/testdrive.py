@@ -93,7 +93,7 @@ ir_atras=Button(root,image=flecha_abajo).place(x=865,y=367)
 ################## FUNCIONES PARA LOS BOTONES Y LABELS ##########################################################################################################
 #### FUNCION PARA LAS LUCES FRONTALES Y LOS BOTONES  ##########
 def btn_hide():
-    if b1.winfo_ismapped():
+    if b1.winfo_ismapped()== True:
         b2.place_forget()
         b1.place(x=1202,y=282)
        
@@ -102,7 +102,7 @@ def btn_hide():
         b1.place(x=1202, y=282)
         
 def btn_show():
-    if b2.winfo_ismapped():
+    if b2.winfo_ismapped()== True:
         b1.place_forget()
         b2.place(x=1202,y=282)
        

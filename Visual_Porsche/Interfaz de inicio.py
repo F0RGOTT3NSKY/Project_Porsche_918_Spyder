@@ -54,6 +54,16 @@ def Ventanas_nueva():
     imagen=PhotoImage(file="porsche_frente2.gif")
 
     carro_frente=Label(test,image=imagen).place(x=100,y=100)
+
+def Ventana_about():
+    root.withdraw()
+    about=Toplevel()
+    about.title("about")
+    about.resizable(width=0,height=0)
+    about.config(width="1485",height="800",bg="gray")
+    imagen=PhotoImage(file="about.gif")
+
+    about_image=Label(about,image=imagen).place(x=0,y=0)
     
 
 ### BOTONES PERTENECIENTES A LA VENTANA DE ORIGEN #### 
@@ -75,7 +85,7 @@ drive.place(x=820,y=220)
 editar = Button(root, text="EDITAR", width=18,font=("Comic Sans MS",10),justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15)
 editar.place(x=820,y=280)
 
-about = Button(root, text="MÁS...",font=("Comic Sans MS",10),width=18,justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15)
+about = Button(root, text="MÁS...",font=("Comic Sans MS",10),width=18,command=Ventana_about,justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15)
 about.place(x=820,y=340)
 
 
