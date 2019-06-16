@@ -31,14 +31,11 @@ class Test_Drive_Ventana_Principal:
         self.Button_Headlights_On_TestDrive = Button_Headlights_On_TestDrive
         self.Button_Headlights_Off_TestDrive = Button_Headlights_Off_TestDrive
         t = 0
-        #           ____________________________
-        #__________/DECLARACION DE FUNCIONES
-        
         
         #           ____________________________
         #__________/CONSTRUCTOR DE VENTANA
         Root_TestDrive.title("Formula 1 - ADJ")
-        Root_TestDrive.config(bg="white",width=1485,height=800)
+        Root_TestDrive.config(bg="black",width=1485,height=800)
         Root_TestDrive.resizable(width=0,height=0)
         
         Label_Fondo_TestDrive = Label( Root_TestDrive, image = Fondo_TestDrive).place(x=0,y=0)
@@ -52,18 +49,21 @@ class Test_Drive_Ventana_Principal:
         Button_Palanca_Dir_Izq_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Izq_TestDrive).place(x=275,y=298)
         Button_Palanca_Dir_Der_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Der_TestDrive).place(x=515,y=298)
         Button_Emergency_TestDrive = Button( Root_TestDrive, image = Emergency_TestDrive).place(x=420,y=370)
-        Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.btn).place(x=1202,y=276)
-        Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.btn1).place(x=1202,y=276)
+        Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.Frontales_Off).place(x=1202,y=280)
+        Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.Frontales_On).place(x=1202,y=280)
+        
+        
+       
         
         Root_TestDrive.mainloop()
         
-    def btn(self):
+    def Frontales_On(self):
         print("Button Clicked")
-        Button_Headlights_On_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_On_TestDrive, command = self.btn1).place(x=1202,y=276)
+        Button_Headlights_On_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_On_TestDrive, command = self.Frontales_Off).place(x=1202,y=280)
        
-    def btn1(self):
+    def Frontales_Off(self):
         print("Button Clicked1")
-        Button_Headlights_Off_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_Off_TestDrive, command = self.btn).place(x=1202,y=276)
+        Button_Headlights_Off_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_Off_TestDrive, command = self.Frontales_On).place(x=1202,y=280)
         
            
 #           ____________________________
