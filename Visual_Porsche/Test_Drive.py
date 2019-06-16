@@ -22,9 +22,13 @@ Palanca_Dir_Der = PhotoImage(file="direccional_derecha.png")
 Emergency = PhotoImage(file="emergencia_mini.png")
 Headlights_Off = PhotoImage(file="off.png")
 Headlights_On = PhotoImage(file="on.png")
-
-
-
+Drive = PhotoImage(file="flecha_arriba.png")
+Reverse = PhotoImage(file="flecha_abajo.png")
+ZIGZAG = PhotoImage(file="zigzag_apagado.png")
+INFINITE = PhotoImage(file="infinito_apagado.png")
+CIRCLE = PhotoImage(file="circulo_apagado.png")
+Winner = PhotoImage(file="Celebracion.png")
+CUSTOM = PhotoImage(file='movimiento_especial_apagado.png')
 #           ____________________________
 #__________/VENTANA PRINCIPAL
 class Test_Drive_Ventana_Principal:
@@ -32,7 +36,8 @@ class Test_Drive_Ventana_Principal:
                  Dir_Izq_Default_TestDrive, Dir_Der_Default_TestDrive, Pedal_Clutch_TestDrive,
                  Pedal_Break_TestDrive, Pedal_Accelerator_TestDrive, Palanca_Dir_Izq_TestDrive,
                  Palanca_Dir_Der_TestDrive, Emergency_TestDrive, Headlights_Off_TestDrive,
-                 Headlights_On_TestDrive):
+                 Headlights_On_TestDrive, Drive_TestDrive, Reverse_TestDrive, ZIGZAG_TestDrive,
+                 INFINITE_TestDrive, CIRCLE_TestDrive, Winner_TestDrive, CUSTOM_TestDrive):
         #           ____________________________
         #__________/VARIABLES PRIVADAS
         self.Root_TestDrive = Root_TestDrive
@@ -49,7 +54,13 @@ class Test_Drive_Ventana_Principal:
         self.Emergency_TestDrive = Emergency_TestDrive
         self.Headlights_Off_TestDrive = Headlights_Off_TestDrive
         self.Headlights_On_TestDrive = Headlights_On_TestDrive
-        
+        self.Drive_TestDrive = Drive_TestDrive
+        self.Reverse_TestDrive = Reverse_TestDrive
+        self.ZIGZAG_TestDrive = ZIGZAG_TestDrive
+        self.INFINITE_TestDrive = INFINITE_TestDrive
+        self.CIRCLE_TestDrive = CIRCLE_TestDrive
+        self.Winner_TestDrive = Winner_TestDrive
+        self.CUSTOM_TestDrive = CUSTOM_TestDrive
         
         #           ____________________________
         #__________/CONSTRUCTOR DE VENTANA
@@ -59,20 +70,27 @@ class Test_Drive_Ventana_Principal:
         
         Label_Fondo_TestDrive = Label( Root_TestDrive, image = Fondo_TestDrive).place(x=0,y=0)
         Label_Volante = Label( Root_TestDrive,image = Volante_TestDrive).place(x=1202,y=0)
-        Label_Dir_Izq_Default = Label( Root_TestDrive, image = Dir_Izq_Default_TestDrive).place(x=1202,y=500)
-        Label_Dir_Der_Default = Label( Root_TestDrive, image = Dir_Der_Default_TestDrive).place(x=1340,y=500)
+        Label_Dir_Izq_Default = Label( Root_TestDrive, image = Dir_Izq_Default_TestDrive).place(x=1202,y=280)
+        Label_Dir_Der_Default = Label( Root_TestDrive, image = Dir_Der_Default_TestDrive).place(x=1342,y=280)
+        
 
-        Button_Pedal_Clutch_TestDrive = Button( Root_TestDrive, image = Pedal_Clutch_TestDrive).place(x=245,y=440)
-        Button_Pedal_Break_TestDrive = Button( Root_TestDrive, image = Pedal_Break_TestDrive).place(x=400,y=440)
-        Button_Pedal_Accelerator_TestDrive = Button( Root_TestDrive, image = Pedal_Accelerator_TestDrive).place(x=514,y=440)
-        Button_Palanca_Dir_Izq_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Izq_TestDrive).place(x=275,y=298)
-        Button_Palanca_Dir_Der_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Der_TestDrive).place(x=515,y=298)
-        Button_Emergency_TestDrive = Button( Root_TestDrive, image = Emergency_TestDrive).place(x=420,y=370)
-        Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.Frontales_Off).place(x=1202,y=280)
-        Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.Frontales_On).place(x=1202,y=280)
+        Button_Pedal_Clutch_TestDrive = Button( Root_TestDrive, image = Pedal_Clutch_TestDrive, bd=0).place(x=245,y=440)
+        Button_Pedal_Break_TestDrive = Button( Root_TestDrive, image = Pedal_Break_TestDrive, bd=0).place(x=400,y=440)
+        Button_Pedal_Accelerator_TestDrive = Button( Root_TestDrive, image = Pedal_Accelerator_TestDrive, bd=0).place(x=514,y=440)
+        Button_Palanca_Dir_Izq_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Izq_TestDrive, bd=0).place(x=275,y=298)
+        Button_Palanca_Dir_Der_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Der_TestDrive, bd=0).place(x=515,y=298)
+        Button_Emergency_TestDrive = Button( Root_TestDrive, image = Emergency_TestDrive, bd=0).place(x=420,y=370)
+        Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.Frontales_Off).place(x=1202,y=353)
+        Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.Frontales_On).place(x=1202,y=353)
         
+        Button_Drive_TestDrive = Button( Root_TestDrive, image = Drive_TestDrive).place(x=865,y=340)
+        Button_Reverse_TestDrive = Button( Root_TestDrive, image = Reverse_TestDrive).place(x=865,y=367)
+        Button_Winner_TestDrive = Button( Root_TestDrive, image = Winner_TestDrive).place(x=1358,y=353)
+        Button_CIRCLE_TestDrive = Button( Root_TestDrive, image = CIRCLE_TestDrive, bd=0).place(x=683,y=230)
+        Button_ZIGZAG_TestDrive = Button( Root_TestDrive, image = ZIGZAG_TestDrive, bd=0).place(x=703,y=175)
+        Button_INFINITE_TestDrive = Button( Root_TestDrive, image = INFINITE_TestDrive, bd=0).place(x=673,y=175)
+        Button_CUSTOM_TestDrive = Button( Root_TestDrive, image = CUSTOM_TestDrive, bd=0).place(x=683,y=265)
         
-       
         
         Root_TestDrive.mainloop()
         
@@ -80,15 +98,25 @@ class Test_Drive_Ventana_Principal:
         #__________/LUCES FRONTALES
     def Frontales_On(self):
         print("Headlights On")
-        Button_Headlights_On_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_On_TestDrive, command = self.Frontales_Off).place(x=1202,y=280)
+        Button_Headlights_On_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_On_TestDrive, command = self.Frontales_Off).place(x=1202,y=353)
        
     def Frontales_Off(self):
         print("Headlights Off")
-        Button_Headlights_Off_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_Off_TestDrive, command = self.Frontales_On).place(x=1202,y=280)
+        Button_Headlights_Off_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_Off_TestDrive, command = self.Frontales_On).place(x=1202,y=353)
+
+
+
         
 #           ____________________________
 #__________/INICIAR
 Test_Drive_Ventana_Principal(Root, Fondo, Icono, Volante, Dir_Izq_Default, Dir_Der_Default,
                              Pedal_Clutch, Pedal_Break, Pedal_Accelerator, Palanca_Dir_Izq,
-                             Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On)
+                             Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On, Drive,
+                             Reverse, ZIGZAG, INFINITE, CIRCLE, Winner, CUSTOM)
+
+
+
+
+
+
 Root.mainloop()
