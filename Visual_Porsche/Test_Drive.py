@@ -11,7 +11,7 @@ import threading
 Root = Tk()
 Fondo = PhotoImage(file = 'porsche_dash.png')
 Icono = Root.iconbitmap('f1logo.ico')
-Volante = PhotoImage(file="volante1.png")
+Volante = PhotoImage(file="volante_0.png")
 Dir_Izq_Default = PhotoImage(file="direccion_izquierda_default.png")        
 Dir_Der_Default = PhotoImage(file="direccion_derecha_default.png")
 Pedal_Clutch = PhotoImage(file="pedal.png")
