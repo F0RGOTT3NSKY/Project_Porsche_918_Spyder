@@ -5,39 +5,49 @@ from tkinter import *
 import time
 import threading
 from threading import *
-
-           
+          
 #           ____________________________
 #__________/VARIABLES GLOBALES
 Root = Tk()
-Fondo = PhotoImage(file = 'porsche_dash.png')
-Icono = Root.iconbitmap('f1logo.ico')
-Volante = PhotoImage(file="volante_0.png")
-Dir_Izq_Off = PhotoImage(file="direccion_izquierda_default.png")        
-Dir_Der_Off = PhotoImage(file="direccion_derecha_default.png")
-Pedal_Clutch = PhotoImage(file="pedal.png")
-Pedal_Break = PhotoImage(file="freno.png")
-Pedal_Accelerator = PhotoImage(file="gas.png")
-Palanca_Dir_Izq = PhotoImage(file="direccional.png")
-Palanca_Dir_Der = PhotoImage(file="direccional_derecha.png")
-Emergency = PhotoImage(file="emergencia_mini.png")
-Headlights_Off = PhotoImage(file="off.png")
-Headlights_On = PhotoImage(file="on.png")
-Drive = PhotoImage(file="flecha_arriba.png")
-Reverse = PhotoImage(file="flecha_abajo.png")
-ZIGZAG_Off = PhotoImage(file="zigzag_apagado.png")
-INFINITE_Off = PhotoImage(file="infinito_apagado.png")
-CIRCLE_Off = PhotoImage(file="circulo_apagado.png")
-Winner = PhotoImage(file="Celebracion.png")
-CUSTOM_Off = PhotoImage(file='movimiento_especial_apagado.png')
-Dir_Der_On = PhotoImage(file="direccion_derecha.png")
-Dir_Izq_On = PhotoImage(file='direccion_izquierda.png')
-CIRCLE_On = PhotoImage(file='circulo_encendido.png')
-ZIGZAG_On = PhotoImage(file='zigzag.png')
-INFINITE_On = PhotoImage(file='infinito_encendido.png')
-CUSTOM1_On = PhotoImage(file="movimiento_especial1.png")
-CUSTOM2_On = PhotoImage(file="movimiento_especial2.png")
-CUSTOM3_On = PhotoImage(file="movimiento_especial3.png")
+Fondo = PhotoImage(file = "porsche_dash.png")
+Icono = Root.iconbitmap("f1logo.ico")
+Dir_Izq_Off = PhotoImage(file = "direccion_izquierda_default.png")        
+Dir_Der_Off = PhotoImage(file = "direccion_derecha_default.png")
+Pedal_Clutch = PhotoImage(file = "pedal.png")
+Pedal_Break = PhotoImage(file = "freno.png")
+Pedal_Accelerator = PhotoImage(file = "gas.png")
+Palanca_Dir_Izq = PhotoImage(file = "direccional.png")
+Palanca_Dir_Der = PhotoImage(file = "direccional_derecha.png")
+Emergency = PhotoImage(file = "emergencia_mini.png")
+Headlights_Off = PhotoImage(file = "off.png")
+Headlights_On = PhotoImage(file = "on.png")
+Drive = PhotoImage(file = "flecha_arriba.png")
+Reverse = PhotoImage(file = "flecha_abajo.png")
+ZIGZAG_Off = PhotoImage(file = "zigzag_apagado.png")
+INFINITE_Off = PhotoImage(file = "infinito_apagado.png")
+CIRCLE_Off = PhotoImage(file = "circulo_apagado.png")
+Winner = PhotoImage(file = "Celebracion.png")
+CUSTOM_Off = PhotoImage(file = "movimiento_especial_apagado.png")
+Dir_Der_On = PhotoImage(file = "direccion_derecha.png")
+Dir_Izq_On = PhotoImage(file = "direccion_izquierda.png")
+CIRCLE_On = PhotoImage(file = "circulo_encendido.png")
+ZIGZAG_On = PhotoImage(file = "zigzag.png")
+INFINITE_On = PhotoImage(file = "infinito_encendido.png")
+CUSTOM1_On = PhotoImage(file = "movimiento_especial1.png")
+CUSTOM2_On = PhotoImage(file = "movimiento_especial2.png")
+CUSTOM3_On = PhotoImage(file = "movimiento_especial3.png")
+Girar_D = PhotoImage(file = "girar_derecha.png")
+Girar_I = PhotoImage(file = "girar_izquierda.png")
+Girar_0 = PhotoImage(file = "direccion_0.png")
+Girar_D_On = PhotoImage(file = "girar_derecha_press.png")
+Girar_I_On = PhotoImage(file = "girar_izquierda_press.png") 
+Girar_0_On = PhotoImage(file = "direccion_0_press.png")
+Volante = PhotoImage(file = "volante_0.png")
+Volante_D_50 = PhotoImage(file = "volante_d_50.png")
+Volante_D_90 = PhotoImage(file = "volante_d_90.png")
+Volante_I_50 = PhotoImage(file = "volante_i_50.png")
+Volante_I_90 = PhotoImage(file = "volante_i_90.png")
+
 #           ____________________________
 #__________/VENTANA PRINCIPAL
 class Test_Drive_Ventana_Principal:
@@ -48,7 +58,9 @@ class Test_Drive_Ventana_Principal:
                  Headlights_On_TestDrive, Drive_TestDrive, Reverse_TestDrive, ZIGZAG_Off_TestDrive,
                  INFINITE_Off_TestDrive, CIRCLE_Off_TestDrive, Winner_TestDrive, CUSTOM_Off_TestDrive,
                  Dir_Der_On_TestDrive, Dir_Izq_On_TestDrive, CIRCLE_On_TestDrive, ZIGZAG_On_TestDrive,
-                 INFINITE_On_TestDrive, CUSTOM1_On_TestDrive, CUSTOM2_On_TestDrive, CUSTOM3_On_TestDrive):
+                 INFINITE_On_TestDrive, CUSTOM1_On_TestDrive, CUSTOM2_On_TestDrive, CUSTOM3_On_TestDrive,
+                 Girar_D_TestDrive, Girar_I_TestDrive, Girar_0_TestDrive, Girar_D_On_TestDrive,
+                 Girar_I_On_TestDrive, Girar_0_On_TestDrive, Volante_D_50_TestDrive, Volante_D_90_TestDrive, Volante_I_50_TestDrive, Volante_I_90_TestDrive):
         #           ____________________________
         #__________/VARIABLES PRIVADAS
         self.Root_TestDrive = Root_TestDrive
@@ -80,6 +92,16 @@ class Test_Drive_Ventana_Principal:
         self.CUSTOM1_On_TestDrive = CUSTOM1_On_TestDrive
         self.CUSTOM2_On_TestDrive = CUSTOM2_On_TestDrive
         self.CUSTOM3_On_TestDrive = CUSTOM3_On_TestDrive
+        self.Girar_D_TestDrive = Girar_D_TestDrive
+        self.Girar_I_TestDrive = Girar_I_TestDrive
+        self.Girar_0_TestDrive = Girar_0_TestDrive
+        self.Girar_D_On_TestDrive = Girar_D_On_TestDrive
+        self.Girar_I_On_TestDrive = Girar_I_On_TestDrive
+        self.Girar_0_On_TestDrive = Girar_0_On_TestDrive
+        self.Volante_D_50_TestDrive = Volante_D_50_TestDrive
+        self.Volante_D_90_TestDrive = Volante_D_90_TestDrive
+        self.Volante_I_50_TestDrive = Volante_I_50_TestDrive
+        self.Volante_I_90_TestDrive = Volante_I_90_TestDrive
         #           ____________________________
         #__________/CONSTRUCTOR DE VENTANA
         Root_TestDrive.title("Formula 1 - ADJ")
@@ -87,7 +109,8 @@ class Test_Drive_Ventana_Principal:
         Root_TestDrive.resizable(width=0,height=0)
         
         Label_Fondo_TestDrive = Label( Root_TestDrive, image = Fondo_TestDrive, bd =0).place(x=0,y=0)
-        Label_Volante = Label( Root_TestDrive,image = Volante_TestDrive, bd =0).place(x=1200,y=0)
+        Label_Volante = Label( Root_TestDrive, image = Volante_TestDrive, bd =0).place(x=1200,y=0)
+        Label_Escuderia = Label( Root_TestDrive, justify = CENTER, text = "PROPORSCHE2k19", font = ("Comic Sans MS",7), relief = "sunken", bg = "black", fg = "white").place(x=744,y=242)
         Label_Dir_Izq_Off = Label( Root_TestDrive, image = Dir_Izq_Off_TestDrive, bd =0).place(x=1200,y=280)
         Label_Dir_Der_Off = Label( Root_TestDrive, image = Dir_Der_Off_TestDrive, bd =0).place(x=1340,y=280)
         
@@ -95,22 +118,71 @@ class Test_Drive_Ventana_Principal:
         Button_Pedal_Clutch_TestDrive = Button( Root_TestDrive, image = Pedal_Clutch_TestDrive, bd=0).place(x=245,y=440)
         Button_Pedal_Break_TestDrive = Button( Root_TestDrive, image = Pedal_Break_TestDrive, bd=0).place(x=400,y=440)
         Button_Pedal_Accelerator_TestDrive = Button( Root_TestDrive, image = Pedal_Accelerator_TestDrive, bd=0).place(x=514,y=440)
+        
         Button_Palanca_Dir_Izq_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Izq_TestDrive, bd=0, command =lambda:self.thread_direccion_izquierda(Thread)).place(x=275,y=298)
         Button_Palanca_Dir_Der_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Der_TestDrive, bd=0, command =lambda:self.thread_direccion_derecha(Thread)).place(x=515,y=298)
         Button_Emergency_TestDrive = Button( Root_TestDrive, image = Emergency_TestDrive, bd=0, command = lambda:self.thread_parqueo(Thread)).place(x=420,y=370)
+        
         Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.Frontales_Off, bd =0).place(x=1200,y=353)
         Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.Frontales_On, bd =0).place(x=1200,y=353)
+        
         Button_Drive_TestDrive = Button( Root_TestDrive, image = Drive_TestDrive, bd=0).place(x=865,y=340)
         Button_Reverse_TestDrive = Button( Root_TestDrive, image = Reverse_TestDrive, bd=0).place(x=865,y=367)
         Button_Winner_TestDrive = Button( Root_TestDrive, image = Winner_TestDrive, bd=0).place(x=1350,y=353)
+        
         Button_CIRCLE_Off_TestDrive = Button( Root_TestDrive, image = CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=680,y=230)
         Button_ZIGZAG_Off_TestDrive = Button( Root_TestDrive, image = ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=700,y=175)
         Button_INFINITE_Off_TestDrive = Button( Root_TestDrive, image = INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=670,y=175)
         Button_CUSTOM_Off_TestDrive = Button( Root_TestDrive, image = CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=680,y=265)
         
+        Button_Girar_D = Button( Root_TestDrive, bd=0, image = Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=1385,y=600)
+        Button_Girar_I = Button( Root_TestDrive, bd=0, image = Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=1203,y=600)
+        Button_Girar_0 = Button( Root_TestDrive, bd=0, image = Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=1310,y=600)
+
         
         Root_TestDrive.mainloop()
-        
+        #           ____________________________
+        #__________/DIRECCION
+                  
+    def girar_derecha(self):
+        x=0
+        while(x<1):
+            Button_Girar_D = Button( self.Root_TestDrive, bd=0, image = self.Girar_D_On_TestDrive).place(x=1385,y=600)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=1200,y=0)
+            time.sleep(0.3)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_D_50_TestDrive, bd =0).place(x=1200,y=0)
+            time.sleep(0.3)
+            Button_Girar_D = Button( self.Root_TestDrive, bd=0, image = self.Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=1385,y=600)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_D_90_TestDrive, bd =0).place(x=1200,y=0)
+            x+=1
+    def thread_girar_derecha(self,Thread):
+        p = threading.Thread(target = self.girar_derecha)
+        p.start()      
+    def girar_izquierda(self):
+        x=0
+        while(x<1):
+            Button_Girar_I = Button( self.Root_TestDrive, bd=0, image = self.Girar_I_On_TestDrive).place(x=1203,y=600)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=1200,y=0)
+            time.sleep(0.3)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_I_50_TestDrive, bd =0).place(x=1200,y=0)
+            time.sleep(0.3)
+            Button_Girar_I = Button( self.Root_TestDrive, bd=0, image = self.Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=1203,y=600)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_I_90_TestDrive, bd =0).place(x=1200,y=0)
+            x+=1      
+    def thread_girar_izquierda(self,Thread):
+        p = threading.Thread(target = self.girar_izquierda)
+        p.start()         
+    def girar_0(self):
+        x=0
+        while(x<1):
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=1200,y=0)
+            Button_Girar_0 = Button( self.Root_TestDrive, bd=0, image = self.Girar_0_On_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=1310,y=600)
+            time.sleep(1)
+            Button_Girar_0 = Button( self.Root_TestDrive, bd=0, image = self.Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=1310,y=600)
+            x+=1
+    def thread_posicion_0(self,Thread):
+        p = threading.Thread(target = self.girar_0)
+        p.start()
         #           ____________________________
         #__________/LUCES FRONTALES
     def Frontales_On(self):
@@ -224,6 +296,7 @@ Test_Drive_Ventana_Principal(Root, Fondo, Icono, Volante, Dir_Izq_Off, Dir_Der_O
                              Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On, Drive,
                              Reverse, ZIGZAG_Off, INFINITE_Off, CIRCLE_Off, Winner, CUSTOM_Off,
                              Dir_Der_On, Dir_Izq_On, CIRCLE_On, ZIGZAG_On , INFINITE_On,
-                             CUSTOM1_On, CUSTOM2_On, CUSTOM3_On)
+                             CUSTOM1_On, CUSTOM2_On, CUSTOM3_On, Girar_D, Girar_I, Girar_0, Girar_D_On,
+                             Girar_I_On, Girar_0_On, Volante_D_50, Volante_D_90, Volante_I_50, Volante_I_90)
 
 
