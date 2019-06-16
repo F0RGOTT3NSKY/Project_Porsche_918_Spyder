@@ -103,10 +103,10 @@ class Test_Drive_Ventana_Principal:
         Button_Drive_TestDrive = Button( Root_TestDrive, image = Drive_TestDrive, bd=0).place(x=865,y=340)
         Button_Reverse_TestDrive = Button( Root_TestDrive, image = Reverse_TestDrive, bd=0).place(x=865,y=367)
         Button_Winner_TestDrive = Button( Root_TestDrive, image = Winner_TestDrive, bd=0).place(x=1350,y=353)
-        Button_CIRCLE_Off_TestDrive = Button( Root_TestDrive, image = CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=683,y=230)
-        Button_ZIGZAG_Off_TestDrive = Button( Root_TestDrive, image = ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=703,y=175)
-        Button_INFINITE_Off_TestDrive = Button( Root_TestDrive, image = INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=673,y=175)
-        Button_CUSTOM_Off_TestDrive = Button( Root_TestDrive, image = CUSTOM_Off_TestDrive, bd=0).place(x=683,y=265)
+        Button_CIRCLE_Off_TestDrive = Button( Root_TestDrive, image = CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=680,y=230)
+        Button_ZIGZAG_Off_TestDrive = Button( Root_TestDrive, image = ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=700,y=175)
+        Button_INFINITE_Off_TestDrive = Button( Root_TestDrive, image = INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=670,y=175)
+        Button_CUSTOM_Off_TestDrive = Button( Root_TestDrive, image = CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=680,y=265)
         
         
         Root_TestDrive.mainloop()
@@ -165,9 +165,9 @@ class Test_Drive_Ventana_Principal:
     def circulo_cambio(self):
         x=0
         while(x<7):
-            Button_CIRCLE_On_TestDrive = Button( self.Root_TestDrive, image = self.CIRCLE_On_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=683,y=230)
+            Button_CIRCLE_On_TestDrive = Button( self.Root_TestDrive, image = self.CIRCLE_On_TestDrive, bd=0).place(x=680,y=230)
             time.sleep(0.5)
-            Button_CIRCLE_Off_TestDrive = Button( self.Root_TestDrive, image = self.CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=683,y=230)
+            Button_CIRCLE_Off_TestDrive = Button( self.Root_TestDrive, image = self.CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=680,y=230)
             time.sleep(0.5)
             x+=1
     def thread_circulo(self,Thread):
@@ -176,9 +176,9 @@ class Test_Drive_Ventana_Principal:
     def zigzag_cambio(self):
         x=0
         while(x<7):
-            Button_ZIGZAG_On_TestDrive = Button( self.Root_TestDrive, image = self.ZIGZAG_On_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=703,y=175)
+            Button_ZIGZAG_On_TestDrive = Button( self.Root_TestDrive, image = self.ZIGZAG_On_TestDrive, bd=0).place(x=700,y=175)
             time.sleep(0.5)
-            Button_ZIGZAG_Off_TestDrive = Button( self.Root_TestDrive, image = self.ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=703,y=175)
+            Button_ZIGZAG_Off_TestDrive = Button( self.Root_TestDrive, image = self.ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=700,y=175)
             time.sleep(0.5)
             x+=1
     def thread_zigzag(self,Thread):
@@ -187,39 +187,33 @@ class Test_Drive_Ventana_Principal:
     def infinito_cambio(self):
         x=0
         while(x<7):
-            Button_INFINITE_On_TestDrive = Button( self.Root_TestDrive, image = self.INFINITE_On_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=673,y=175)
+            Button_INFINITE_On_TestDrive = Button( self.Root_TestDrive, image = self.INFINITE_On_TestDrive, bd=0).place(x=670,y=175)
             time.sleep(0.5)
-            Button_INFINITE_Off_TestDrive = Button( self.Root_TestDrive, image = self.INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=673,y=175)
+            Button_INFINITE_Off_TestDrive = Button( self.Root_TestDrive, image = self.INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=670,y=175)
             time.sleep(0.5)
             x+=1
     def thread_infinito(self,Thread):
         p = threading.Thread(target = self.infinito_cambio)
         p.start()
-    def especial_cambio():
+    def especial_cambio(self):
         global mov_especial
         x=0
         while(x<1):
-            especial=Button(root,image=mov_especial,command=lambda: thread_especial()).place(x=955,y=710)
+            Button_CUSTOM_Off_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=680,y=265)
             time.sleep(0.3)
             i=0
             while(i<10):
-                    
-                    mov_especial=PhotoImage(file="movimiento_especial1.png")
-                    especial=Button(root,image=mov_especial,command=lambda: thread_especial()).place(x=955,y=710)
+                    Button_CUSTOM1_On_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM1_On_TestDrive, bd=0).place(x=680,y=265)
                     time.sleep(0.3)
-                    mov_especial=PhotoImage(file="movimiento_especial2.png")
-                    especial=Button(root,image=mov_especial,command=lambda: thread_especial()).place(x=955,y=710)
+                    Button_CUSTOM2_On_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM2_On_TestDrive, bd=0).place(x=680,y=265)
                     time.sleep(0.3)
-                    mov_especial=PhotoImage(file="movimiento_especial3.png")
-                    especial=Button(root,image=mov_especial,command=lambda: thread_especial()).place(x=955,y=710)
+                    Button_CUSTOM3_On_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM3_On_TestDrive, bd=0).place(x=680,y=265)
                     time.sleep(0.3)
                     i+=1
-            mov_especial=PhotoImage(file='movimiento_especial_apagado.png')
-            especial=Button(root,image=mov_especial,command=lambda: thread_especial()).place(x=955,y=710)
+            Button_CUSTOM_Off_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=680,y=265)
             x+=1
-        
-    def thread_especial():
-        p=threading.Thread(target=especial_cambio)
+    def thread_especial(self,Thread):
+        p = threading.Thread(target = self.especial_cambio)
         p.start()
         
         
