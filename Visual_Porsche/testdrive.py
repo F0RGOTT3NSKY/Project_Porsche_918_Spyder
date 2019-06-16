@@ -35,6 +35,17 @@ dir_derecha_default=PhotoImage(file="direccion_derecha_default.png")
 direccional_derecha_default=Label(root,image=dir_derecha_default).place(x=1340,y=500)
 
 Escuderia=Label(root,justify=CENTER,text="PROPORSCHE2k19",font=("Comic Sans MS",7),relief="sunken",bg="black",fg="white").place(x=746,y=244)
+## BATERIAS  ###
+bateria_llena=PhotoImage(file='bateria_llena.png')
+llena=Label(root,image=bateria_llena,bd=0).place(x=857,y=205)
+
+
+## LUZ Y OSCURIDAD ##
+moon=PhotoImage(file='luna.png')
+luna=Label(root,image=moon,bd=0).place(x=867,y=176)
+
+sol=PhotoImage(file='sol.png')
+
 
 ### TECLAS ### 
 def R(event):
@@ -50,14 +61,23 @@ def Arriba(event):
 
 
 def adelante(event):
-    if event.keysym=='w':
-        print("arriba")
+    print(1)
+    
+
+
+def cambio2(event):
+    return thread_sol()
+        
+def cambio(event):
+    return thread_luz_oscuridad()    
+        
 
 root.bind_all('<KeyPress-w>',adelante)
 root.bind_all("<KeyPress-Right>",R)
 root.bind_all("<KeyPress-Left>",L)
 root.bind_all("<KeyPress-Up>",Arriba)
-
+root.bind_all("<KeyPress-s>",cambio)
+root.bind_all("<KeyPress-l>",cambio2)
 
 
     ### botones con imagenes ###
@@ -379,7 +399,44 @@ def girar_0():
 def thread_posicion_0():
     p=threading.Thread(target=girar_0)
     p.start()
+    
+def oscuro():
+        global moon,sol
+        x=0
+        while(x<1):
+            moon=PhotoImage(file='luna.png')
+            luna=Label(root,image=moon,bd=0,bg="black").place(x=867,y=176)
+            
+            time.sleep(0.5)
+            moon=PhotoImage(file='sol.png')
+            luna=Label(root,image=moon,bd=0).place(x=867,y=176)
+            
+            
+            
+            x+=1
 
+def thread_luz_oscuridad():
+    p=threading.Thread(target=oscuro)
+    p.start()
+    
+def sol():
+        global moon,sol
+        x=0
+        while(x<1):
+            moon=PhotoImage(file='sol.png')
+            luna=Label(root,image=moon,bd=0).place(x=867,y=176)
+            
+            time.sleep(0.5)
+            moon=PhotoImage(file='luna.png')
+            luna=Label(root,image=moon,bg="black",bd=0).place(x=867,y=176)
+            
+            
+            
+            x+=1
+
+def thread_sol():
+    p=threading.Thread(target=sol)
+    p.start()
 
 
 root.mainloop()
