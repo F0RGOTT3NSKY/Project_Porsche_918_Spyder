@@ -12,7 +12,9 @@ root.resizable(width=0,height=0)
 fondo=PhotoImage(file='porsche_dash.gif')
 label_de_imagen=Label(root,image=fondo).place(x=0,y=0)
 icono=root.iconbitmap('f1logo.ico')
-
+## VELOCIMETRO ###
+velocimetro_neon=PhotoImage(file='velocimetro.png')
+velocimetro=Label(root,image=velocimetro_neon,bg='black').place(x=388,y=91)
 ## VOLANTE EN POSICION NORMAL ## 
 volante=PhotoImage(file="volante_0.png")
 ## VOLANTE EN POSICION 50 DERECHA ##
@@ -33,9 +35,30 @@ dir_derecha_default=PhotoImage(file="direccion_derecha_default.png")
 direccional_derecha_default=Label(root,image=dir_derecha_default).place(x=1340,y=500)
 
 Escuderia=Label(root,justify=CENTER,text="PROPORSCHE2k19",font=("Comic Sans MS",7),relief="sunken",bg="black",fg="white").place(x=746,y=244)
-def r(event):
-    print("hola")
-root.bind("<Right>",r)
+
+### TECLAS ### 
+def R(event):
+    if event.keysym=='Right':
+        return thread_girar_derecha()
+def L(event):
+    if event.keysym=='Left':
+        return thread_girar_izquierda()
+def Arriba(event):
+    return thread_posicion_0()
+
+
+
+
+def adelante(event):
+    if event.keysym=='w':
+        print("arriba")
+
+root.bind_all('<KeyPress-w>',adelante)
+root.bind_all("<KeyPress-Right>",R)
+root.bind_all("<KeyPress-Left>",L)
+root.bind_all("<KeyPress-Up>",Arriba)
+
+
 
     ### botones con imagenes ###
 pedal_closh=PhotoImage(file="pedal.png")
@@ -291,10 +314,10 @@ def girar_derecha():
             girar_derecha=Button(root,bd=0,image=girar_D,command=lambda: thread_girar_derecha()).place(x=1385,y=600)
             volante=PhotoImage(file='volante_0.png')
             L_volante=Label(root,image=volante).place(x=1202,y=0)
-            time.sleep(0.5)
+            time.sleep(0.3)
             volante=PhotoImage(file="volante_d_50.png")
             L_volante=Label(root,image=volante).place(x=1202,y=0)
-            time.sleep(0.5)
+            time.sleep(0.3)
             girar_D=PhotoImage(file='girar_derecha.png')
             girar_derecha=Button(root,bd=0,image=girar_D,command=lambda: thread_girar_derecha()).place(x=1385,y=600)
             volante=PhotoImage(file='volante_d_90.png')
@@ -317,10 +340,10 @@ def girar_izquierda():
             girar_izquierda=Button(root,bd=0,image=girar_I,command=lambda: thread_girar_izquierda()).place(x=1203,y=600)
             volante=PhotoImage(file='volante_0.png')
             L_volante=Label(root,image=volante).place(x=1202,y=0)
-            time.sleep(0.5)
+            time.sleep(0.3)
             volante=PhotoImage(file="volante_i_50.png")
             L_volante=Label(root,image=volante).place(x=1202,y=0)
-            time.sleep(0.5)
+            time.sleep(0.3)
             volante=PhotoImage(file='volante_i_90.png')
             L_volante=Label(root,image=volante).place(x=1202,y=0)
             girar_I=PhotoImage(file='girar_izquierda.png')
