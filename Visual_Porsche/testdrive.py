@@ -32,7 +32,7 @@ direccional_default=Label(root,image=dir_default).place(x=1202,y=500)
 dir_derecha_default=PhotoImage(file="direccion_derecha_default.png")        
 direccional_derecha_default=Label(root,image=dir_derecha_default).place(x=1340,y=500)
 
-Escuderia=Label(root,justify=CENTER,text="PROPORSCHE2k19",font=("Comic Sans MS",7),relief="sunken",bg="black",fg="white").place(x=746,y=244)
+Escuderia=Label(root,justify=CENTER,text="PROPORSCHE2k19",font=("Comic Sans MS",7),relief="sunken",bg="black",fg="white").place(x=744,y=242)
 def r(event):
     print("hola")
 root.bind("<Right>",r)

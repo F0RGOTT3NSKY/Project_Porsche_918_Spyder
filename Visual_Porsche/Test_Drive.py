@@ -5,8 +5,7 @@ from tkinter import *
 import time
 import threading
 from threading import *
-
-           
+          
 #           ____________________________
 #__________/VARIABLES GLOBALES
 Root = Tk()
@@ -38,6 +37,10 @@ INFINITE_On = PhotoImage(file='infinito_encendido.png')
 CUSTOM1_On = PhotoImage(file="movimiento_especial1.png")
 CUSTOM2_On = PhotoImage(file="movimiento_especial2.png")
 CUSTOM3_On = PhotoImage(file="movimiento_especial3.png")
+Girar_D = PhotoImage(file='girar_derecha.png')
+Girar_I = PhotoImage(file='girar_izquierda.png')
+Girar_0 = PhotoImage(file='direccion_0.png')
+
 #           ____________________________
 #__________/VENTANA PRINCIPAL
 class Test_Drive_Ventana_Principal:
@@ -48,7 +51,8 @@ class Test_Drive_Ventana_Principal:
                  Headlights_On_TestDrive, Drive_TestDrive, Reverse_TestDrive, ZIGZAG_Off_TestDrive,
                  INFINITE_Off_TestDrive, CIRCLE_Off_TestDrive, Winner_TestDrive, CUSTOM_Off_TestDrive,
                  Dir_Der_On_TestDrive, Dir_Izq_On_TestDrive, CIRCLE_On_TestDrive, ZIGZAG_On_TestDrive,
-                 INFINITE_On_TestDrive, CUSTOM1_On_TestDrive, CUSTOM2_On_TestDrive, CUSTOM3_On_TestDrive):
+                 INFINITE_On_TestDrive, CUSTOM1_On_TestDrive, CUSTOM2_On_TestDrive, CUSTOM3_On_TestDrive,
+                 Girar_D_TestDrive, Girar_I_TestDrive, Girar_0_TestDrive):
         #           ____________________________
         #__________/VARIABLES PRIVADAS
         self.Root_TestDrive = Root_TestDrive
@@ -88,6 +92,7 @@ class Test_Drive_Ventana_Principal:
         
         Label_Fondo_TestDrive = Label( Root_TestDrive, image = Fondo_TestDrive, bd =0).place(x=0,y=0)
         Label_Volante = Label( Root_TestDrive,image = Volante_TestDrive, bd =0).place(x=1200,y=0)
+        Label_Escuderia = Label( Root_TestDrive, justify = CENTER, text = "PROPORSCHE2k19", font = ("Comic Sans MS",7), relief = "sunken", bg = "black", fg = "white").place(x=744,y=242)
         Label_Dir_Izq_Off = Label( Root_TestDrive, image = Dir_Izq_Off_TestDrive, bd =0).place(x=1200,y=280)
         Label_Dir_Der_Off = Label( Root_TestDrive, image = Dir_Der_Off_TestDrive, bd =0).place(x=1340,y=280)
         
@@ -95,22 +100,29 @@ class Test_Drive_Ventana_Principal:
         Button_Pedal_Clutch_TestDrive = Button( Root_TestDrive, image = Pedal_Clutch_TestDrive, bd=0).place(x=245,y=440)
         Button_Pedal_Break_TestDrive = Button( Root_TestDrive, image = Pedal_Break_TestDrive, bd=0).place(x=400,y=440)
         Button_Pedal_Accelerator_TestDrive = Button( Root_TestDrive, image = Pedal_Accelerator_TestDrive, bd=0).place(x=514,y=440)
+        
         Button_Palanca_Dir_Izq_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Izq_TestDrive, bd=0, command =lambda:self.thread_direccion_izquierda(Thread)).place(x=275,y=298)
         Button_Palanca_Dir_Der_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Der_TestDrive, bd=0, command =lambda:self.thread_direccion_derecha(Thread)).place(x=515,y=298)
         Button_Emergency_TestDrive = Button( Root_TestDrive, image = Emergency_TestDrive, bd=0, command = lambda:self.thread_parqueo(Thread)).place(x=420,y=370)
+        
         Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.Frontales_Off, bd =0).place(x=1200,y=353)
         Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.Frontales_On, bd =0).place(x=1200,y=353)
+        
         Button_Drive_TestDrive = Button( Root_TestDrive, image = Drive_TestDrive, bd=0).place(x=865,y=340)
         Button_Reverse_TestDrive = Button( Root_TestDrive, image = Reverse_TestDrive, bd=0).place(x=865,y=367)
         Button_Winner_TestDrive = Button( Root_TestDrive, image = Winner_TestDrive, bd=0).place(x=1350,y=353)
+        
         Button_CIRCLE_Off_TestDrive = Button( Root_TestDrive, image = CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=680,y=230)
         Button_ZIGZAG_Off_TestDrive = Button( Root_TestDrive, image = ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=700,y=175)
         Button_INFINITE_Off_TestDrive = Button( Root_TestDrive, image = INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=670,y=175)
         Button_CUSTOM_Off_TestDrive = Button( Root_TestDrive, image = CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=680,y=265)
         
+        Button_girar_derecha=Button(root,bd=0,image=girar_D,command=lambda: thread_girar_derecha()).place(x=1385,y=600)
+        Button_girar_izquierda=Button(root,bd=0,image=girar_I,command=lambda: thread_girar_izquierda()).place(x=1203,y=600)
+        Button_girar_none=Button(root,bd=0,image=direccion_0,command=lambda: thread_posicion_0()).place(x=1310,y=600)
+
         
         Root_TestDrive.mainloop()
-        
         #           ____________________________
         #__________/LUCES FRONTALES
     def Frontales_On(self):
@@ -224,6 +236,6 @@ Test_Drive_Ventana_Principal(Root, Fondo, Icono, Volante, Dir_Izq_Off, Dir_Der_O
                              Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On, Drive,
                              Reverse, ZIGZAG_Off, INFINITE_Off, CIRCLE_Off, Winner, CUSTOM_Off,
                              Dir_Der_On, Dir_Izq_On, CIRCLE_On, ZIGZAG_On , INFINITE_On,
-                             CUSTOM1_On, CUSTOM2_On, CUSTOM3_On)
+                             CUSTOM1_On, CUSTOM2_On, CUSTOM3_On, Girar_D, Girar_I, Girar_0)
 
 
