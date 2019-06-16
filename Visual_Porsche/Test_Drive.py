@@ -4,6 +4,27 @@ import tkinter
 from tkinter import *
 import time
 import threading
+
+           
+#           ____________________________
+#__________/VARIABLES GLOBALES
+Root = Tk()
+Fondo = PhotoImage(file = 'porsche_dash.png')
+Icono = Root.iconbitmap('f1logo.ico')
+Volante = PhotoImage(file="volante1.png")
+Dir_Izq_Default = PhotoImage(file="direccion_izquierda_default.png")        
+Dir_Der_Default = PhotoImage(file="direccion_derecha_default.png")
+Pedal_Clutch = PhotoImage(file="pedal.png")
+Pedal_Break = PhotoImage(file="freno.png")
+Pedal_Accelerator = PhotoImage(file="gas.png")
+Palanca_Dir_Izq = PhotoImage(file="direccional.png")
+Palanca_Dir_Der = PhotoImage(file="direccional_derecha.png")
+Emergency = PhotoImage(file="emergencia_mini.png")
+Headlights_Off = PhotoImage(file="off.png")
+Headlights_On = PhotoImage(file="on.png")
+
+
+
 #           ____________________________
 #__________/VENTANA PRINCIPAL
 class Test_Drive_Ventana_Principal:
@@ -11,7 +32,7 @@ class Test_Drive_Ventana_Principal:
                  Dir_Izq_Default_TestDrive, Dir_Der_Default_TestDrive, Pedal_Clutch_TestDrive,
                  Pedal_Break_TestDrive, Pedal_Accelerator_TestDrive, Palanca_Dir_Izq_TestDrive,
                  Palanca_Dir_Der_TestDrive, Emergency_TestDrive, Headlights_Off_TestDrive,
-                 Headlights_On_TestDrive, Button_Headlights_On_TestDrive, Button_Headlights_Off_TestDrive):
+                 Headlights_On_TestDrive):
         #           ____________________________
         #__________/VARIABLES PRIVADAS
         self.Root_TestDrive = Root_TestDrive
@@ -28,9 +49,7 @@ class Test_Drive_Ventana_Principal:
         self.Emergency_TestDrive = Emergency_TestDrive
         self.Headlights_Off_TestDrive = Headlights_Off_TestDrive
         self.Headlights_On_TestDrive = Headlights_On_TestDrive
-        self.Button_Headlights_On_TestDrive = Button_Headlights_On_TestDrive
-        self.Button_Headlights_Off_TestDrive = Button_Headlights_Off_TestDrive
-        t = 0
+        
         
         #           ____________________________
         #__________/CONSTRUCTOR DE VENTANA
@@ -57,43 +76,19 @@ class Test_Drive_Ventana_Principal:
         
         Root_TestDrive.mainloop()
         
+        #           ____________________________
+        #__________/LUCES FRONTALES
     def Frontales_On(self):
-        print("Button Clicked")
+        print("Headlights On")
         Button_Headlights_On_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_On_TestDrive, command = self.Frontales_Off).place(x=1202,y=280)
        
     def Frontales_Off(self):
-        print("Button Clicked1")
+        print("Headlights Off")
         Button_Headlights_Off_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_Off_TestDrive, command = self.Frontales_On).place(x=1202,y=280)
         
-           
-#           ____________________________
-#__________/VARIABLES GLOBALES
-Root = Tk()
-Fondo = PhotoImage(file = 'porsche_dash.png')
-Icono = Root.iconbitmap('f1logo.ico')
-Volante = PhotoImage(file="volante1.png")
-Dir_Izq_Default = PhotoImage(file="direccion_izquierda_default.png")        
-Dir_Der_Default = PhotoImage(file="direccion_derecha_default.png")
-Pedal_Clutch = PhotoImage(file="pedal.png")
-Pedal_Break = PhotoImage(file="freno.png")
-Pedal_Accelerator = PhotoImage(file="gas.png")
-Palanca_Dir_Izq = PhotoImage(file="direccional.png")
-Palanca_Dir_Der = PhotoImage(file="direccional_derecha.png")
-Emergency = PhotoImage(file="emergencia_mini.png")
-Headlights_Off = PhotoImage(file="off.png")
-Headlights_On = PhotoImage(file="on.png")
-
-Button_Headlights_On = Button
-Button_Headlights_Off = Button
-
-
-
-def btn(Button_Headlights_Off_TestDrive,Headlights_On_TestDrive):
-    Button_Headlights_Off = Button(image = Headlights_Off_TestDrive)
-
 #           ____________________________
 #__________/INICIAR
 Test_Drive_Ventana_Principal(Root, Fondo, Icono, Volante, Dir_Izq_Default, Dir_Der_Default,
                              Pedal_Clutch, Pedal_Break, Pedal_Accelerator, Palanca_Dir_Izq,
-                             Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On, Button_Headlights_On, Button_Headlights_Off)
+                             Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On)
 Root.mainloop()
