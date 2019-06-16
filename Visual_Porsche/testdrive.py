@@ -34,12 +34,12 @@ direccional_default=Label(root,image=dir_default).place(x=1202,y=500)
 dir_derecha_default=PhotoImage(file="direccion_derecha_default.png")        
 direccional_derecha_default=Label(root,image=dir_derecha_default).place(x=1340,y=500)
 
-<<<<<<< HEAD
+
 Escuderia=Label(root,justify=CENTER,text="PROPORSCHE2k19",font=("Comic Sans MS",7),relief="sunken",bg="black",fg="white").place(x=744,y=242)
 def r(event):
     print("hola")
 root.bind("<Right>",r)
-=======
+#=======
 Escuderia=Label(root,justify=CENTER,text="PROPORSCHE2k19",font=("Comic Sans MS",7),relief="sunken",bg="black",fg="white").place(x=746,y=244)
 
 ### TECLAS ### 
@@ -65,7 +65,7 @@ root.bind_all("<KeyPress-Left>",L)
 root.bind_all("<KeyPress-Up>",Arriba)
 
 
->>>>>>> 2b74309ac9eedd04a1d170351950dbfbfeffdbe5
+
 
     ### botones con imagenes ###
 pedal_closh=PhotoImage(file="pedal.png")
