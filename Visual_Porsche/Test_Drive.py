@@ -19,8 +19,8 @@ Pedal_Accelerator = PhotoImage(file = "gas.png")
 Palanca_Dir_Izq = PhotoImage(file = "direccional.png")
 Palanca_Dir_Der = PhotoImage(file = "direccional_derecha.png")
 Emergency = PhotoImage(file = "emergencia_mini.png")
-Headlights_Off = PhotoImage(file = "off.png")
-Headlights_On = PhotoImage(file = "on.png")
+Headlights_Off = PhotoImage(file = "Off2.png")
+Headlights_On = PhotoImage(file = "On2.png")
 Drive = PhotoImage(file = "flecha_arriba.png")
 Reverse = PhotoImage(file = "flecha_abajo.png")
 ZIGZAG_Off = PhotoImage(file = "zigzag_apagado.png")
@@ -121,10 +121,10 @@ class Test_Drive_Ventana_Principal:
         
         Button_Palanca_Dir_Izq_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Izq_TestDrive, bd=0, command =lambda:self.thread_direccion_izquierda(Thread)).place(x=275,y=298)
         Button_Palanca_Dir_Der_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Der_TestDrive, bd=0, command =lambda:self.thread_direccion_derecha(Thread)).place(x=515,y=298)
-        Button_Emergency_TestDrive = Button( Root_TestDrive, image = Emergency_TestDrive, bd=0, command = lambda:self.thread_parqueo(Thread)).place(x=420,y=370)
+        Button_Emergency_TestDrive = Button( Root_TestDrive, image = Emergency_TestDrive, bd=0, command = lambda:self.thread_parqueo(Thread)).place(x=152,y=238)
         
-        Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.Frontales_Off, bd =0).place(x=1200,y=353)
-        Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.Frontales_On, bd =0).place(x=1200,y=353)
+        Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.Frontales_Off, bd =0).place(x=148,y=193)
+        Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.Frontales_On, bd =0).place(x=148,y=193)
         
         Button_Drive_TestDrive = Button( Root_TestDrive, image = Drive_TestDrive, bd=0).place(x=865,y=340)
         Button_Reverse_TestDrive = Button( Root_TestDrive, image = Reverse_TestDrive, bd=0).place(x=865,y=367)
@@ -135,8 +135,8 @@ class Test_Drive_Ventana_Principal:
         Button_INFINITE_Off_TestDrive = Button( Root_TestDrive, image = INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=670,y=175)
         Button_CUSTOM_Off_TestDrive = Button( Root_TestDrive, image = CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=680,y=265)
         
-        Button_Girar_D = Button( Root_TestDrive, bd=0, image = Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=1385,y=600)
-        Button_Girar_I = Button( Root_TestDrive, bd=0, image = Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=1203,y=600)
+        Button_Girar_D = Button( Root_TestDrive, bd=0, image = Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=515,y=220)
+        Button_Girar_I = Button( Root_TestDrive, bd=0, image = Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=312,y=222)
         Button_Girar_0 = Button( Root_TestDrive, bd=0, image = Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=1310,y=600)
 
         
@@ -147,12 +147,12 @@ class Test_Drive_Ventana_Principal:
     def girar_derecha(self):
         x=0
         while(x<1):
-            Button_Girar_D = Button( self.Root_TestDrive, bd=0, image = self.Girar_D_On_TestDrive).place(x=1385,y=600)
+            Button_Girar_D = Button( self.Root_TestDrive, bd=0, image = self.Girar_D_On_TestDrive).place(x=515,y=220)
             Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=1200,y=0)
             time.sleep(0.3)
             Label_Volante = Label( self.Root_TestDrive, image = self.Volante_D_50_TestDrive, bd =0).place(x=1200,y=0)
             time.sleep(0.3)
-            Button_Girar_D = Button( self.Root_TestDrive, bd=0, image = self.Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=1385,y=600)
+            Button_Girar_D = Button( self.Root_TestDrive, bd=0, image = self.Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=515,y=220)
             Label_Volante = Label( self.Root_TestDrive, image = self.Volante_D_90_TestDrive, bd =0).place(x=1200,y=0)
             x+=1
     def thread_girar_derecha(self,Thread):
@@ -161,12 +161,12 @@ class Test_Drive_Ventana_Principal:
     def girar_izquierda(self):
         x=0
         while(x<1):
-            Button_Girar_I = Button( self.Root_TestDrive, bd=0, image = self.Girar_I_On_TestDrive).place(x=1203,y=600)
+            Button_Girar_I = Button( self.Root_TestDrive, bd=0, image = self.Girar_I_On_TestDrive).place(x=312,y=222)
             Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=1200,y=0)
             time.sleep(0.3)
             Label_Volante = Label( self.Root_TestDrive, image = self.Volante_I_50_TestDrive, bd =0).place(x=1200,y=0)
             time.sleep(0.3)
-            Button_Girar_I = Button( self.Root_TestDrive, bd=0, image = self.Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=1203,y=600)
+            Button_Girar_I = Button( self.Root_TestDrive, bd=0, image = self.Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=312,y=222)
             Label_Volante = Label( self.Root_TestDrive, image = self.Volante_I_90_TestDrive, bd =0).place(x=1200,y=0)
             x+=1      
     def thread_girar_izquierda(self,Thread):
@@ -187,11 +187,11 @@ class Test_Drive_Ventana_Principal:
         #__________/LUCES FRONTALES
     def Frontales_On(self):
         print("Headlights On")
-        Button_Headlights_On_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_On_TestDrive, bd =0, command = self.Frontales_Off).place(x=1200,y=353)
+        Button_Headlights_On_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_On_TestDrive, bd =0, command = self.Frontales_Off).place(x=148,y=193)
        
     def Frontales_Off(self):
         print("Headlights Off")
-        Button_Headlights_Off_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_Off_TestDrive, bd =0, command = self.Frontales_On).place(x=1200,y=353)
+        Button_Headlights_Off_TestDrive = Button( self.Root_TestDrive, image = self.Headlights_Off_TestDrive, bd =0, command = self.Frontales_On).place(x=148,y=193)
         #           ____________________________
         #__________/DIRECCIONALES
     def Dir_Der(self):
