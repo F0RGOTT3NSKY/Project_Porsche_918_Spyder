@@ -109,10 +109,10 @@ class Test_Drive_Ventana_Principal:
         Root_TestDrive.resizable(width=0,height=0)
         
         Label_Fondo_TestDrive = Label( Root_TestDrive, image = Fondo_TestDrive, bd =0).place(x=0,y=0)
-        Label_Volante = Label( Root_TestDrive, image = Volante_TestDrive, bd =0).place(x=1200,y=0)
-        Label_Escuderia = Label( Root_TestDrive, justify = CENTER, text = "PROPORSCHE2k19", font = ("Comic Sans MS",7), relief = "sunken", bg = "black", fg = "white").place(x=744,y=242)
-        Label_Dir_Izq_Off = Label( Root_TestDrive, image = Dir_Izq_Off_TestDrive, bd =0).place(x=1200,y=280)
-        Label_Dir_Der_Off = Label( Root_TestDrive, image = Dir_Der_Off_TestDrive, bd =0).place(x=1340,y=280)
+        Label_Volante = Label( Root_TestDrive, image = Volante_TestDrive, bd =0).place(x=744,y=174)
+        Label_Escuderia = Label( Root_TestDrive, justify = CENTER, text = "PROPORSCHE2k19", font = ("Comic Sans MS",7), relief = "sunken", bg = "black", fg = "white").place(x=743,y=246)
+        Label_Dir_Izq_Off = Label( Root_TestDrive, image = Dir_Izq_Off_TestDrive, bd =0).place(x=348,y=195)
+        Label_Dir_Der_Off = Label( Root_TestDrive, image = Dir_Der_Off_TestDrive, bd =0).place(x=505,y=195)
         
 
         Button_Pedal_Clutch_TestDrive = Button( Root_TestDrive, image = Pedal_Clutch_TestDrive, bd=0).place(x=245,y=440)
@@ -130,14 +130,14 @@ class Test_Drive_Ventana_Principal:
         Button_Reverse_TestDrive = Button( Root_TestDrive, image = Reverse_TestDrive, bd=0).place(x=865,y=367)
         Button_Winner_TestDrive = Button( Root_TestDrive, image = Winner_TestDrive, bd=0).place(x=1350,y=353)
         
-        Button_CIRCLE_Off_TestDrive = Button( Root_TestDrive, image = CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=680,y=230)
-        Button_ZIGZAG_Off_TestDrive = Button( Root_TestDrive, image = ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=700,y=175)
-        Button_INFINITE_Off_TestDrive = Button( Root_TestDrive, image = INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=670,y=175)
-        Button_CUSTOM_Off_TestDrive = Button( Root_TestDrive, image = CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=680,y=265)
+        Button_CIRCLE_Off_TestDrive = Button( Root_TestDrive, image = CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=679,y=218)
+        Button_ZIGZAG_Off_TestDrive = Button( Root_TestDrive, image = ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=698,y=170)
+        Button_INFINITE_Off_TestDrive = Button( Root_TestDrive, image = INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=672,y=170)
+        Button_CUSTOM_Off_TestDrive = Button( Root_TestDrive, image = CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=679,y=256)
         
         Button_Girar_D = Button( Root_TestDrive, bd=0, image = Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=515,y=220)
         Button_Girar_I = Button( Root_TestDrive, bd=0, image = Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=312,y=222)
-        Button_Girar_0 = Button( Root_TestDrive, bd=0, image = Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=1310,y=600)
+        Button_Girar_0 = Button( Root_TestDrive, bd=0, image = Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=416,y=360)
 
         
         Root_TestDrive.mainloop()
@@ -148,26 +148,26 @@ class Test_Drive_Ventana_Principal:
         x=0
         while(x<1):
             Button_Girar_D = Button( self.Root_TestDrive, bd=0, image = self.Girar_D_On_TestDrive).place(x=515,y=220)
-            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=1200,y=0)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=744,y=174)
             time.sleep(0.3)
-            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_D_50_TestDrive, bd =0).place(x=1200,y=0)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_D_50_TestDrive, bd =0).place(x=744,y=174)
             time.sleep(0.3)
             Button_Girar_D = Button( self.Root_TestDrive, bd=0, image = self.Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=515,y=220)
-            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_D_90_TestDrive, bd =0).place(x=1200,y=0)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_D_90_TestDrive, bd =0).place(x=744,y=174)
             x+=1
     def thread_girar_derecha(self,Thread):
         p = threading.Thread(target = self.girar_derecha)
-        p.start()      
+        p.start()
     def girar_izquierda(self):
         x=0
         while(x<1):
             Button_Girar_I = Button( self.Root_TestDrive, bd=0, image = self.Girar_I_On_TestDrive).place(x=312,y=222)
-            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=1200,y=0)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=744,y=174)
             time.sleep(0.3)
-            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_I_50_TestDrive, bd =0).place(x=1200,y=0)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_I_50_TestDrive, bd =0).place(x=744,y=174)
             time.sleep(0.3)
             Button_Girar_I = Button( self.Root_TestDrive, bd=0, image = self.Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=312,y=222)
-            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_I_90_TestDrive, bd =0).place(x=1200,y=0)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_I_90_TestDrive, bd =0).place(x=744,y=174)
             x+=1      
     def thread_girar_izquierda(self,Thread):
         p = threading.Thread(target = self.girar_izquierda)
@@ -175,10 +175,10 @@ class Test_Drive_Ventana_Principal:
     def girar_0(self):
         x=0
         while(x<1):
-            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=1200,y=0)
-            Button_Girar_0 = Button( self.Root_TestDrive, bd=0, image = self.Girar_0_On_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=1310,y=600)
+            Label_Volante = Label( self.Root_TestDrive, image = self.Volante_TestDrive, bd =0).place(x=744,y=174)
+            Button_Girar_0 = Button( self.Root_TestDrive, bd=0, image = self.Girar_0_On_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=416,y=360)
             time.sleep(1)
-            Button_Girar_0 = Button( self.Root_TestDrive, bd=0, image = self.Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=1310,y=600)
+            Button_Girar_0 = Button( self.Root_TestDrive, bd=0, image = self.Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=416,y=360)
             x+=1
     def thread_posicion_0(self,Thread):
         p = threading.Thread(target = self.girar_0)
@@ -198,9 +198,9 @@ class Test_Drive_Ventana_Principal:
         x=0
         while(x<6):
             print("Dir Derecha On")
-            Label_Dir_Der_On = Label( self.Root_TestDrive, image = self.Dir_Der_On_TestDrive, bd =0).place(x=1340,y=280)
+            Label_Dir_Der_On = Label( self.Root_TestDrive, image = self.Dir_Der_On_TestDrive, bd =0).place(x=505,y=195)
             time.sleep(0.5)
-            Label_Dir_Der_Off = Label( self.Root_TestDrive, image = self.Dir_Der_Off_TestDrive, bd =0).place(x=1340,y=280)
+            Label_Dir_Der_Off = Label( self.Root_TestDrive, image = self.Dir_Der_Off_TestDrive, bd =0).place(x=505,y=195)
             time.sleep(0.5)
             x+=1
     def thread_direccion_derecha(self,Thread):
@@ -210,9 +210,9 @@ class Test_Drive_Ventana_Principal:
         x=0
         while(x<6):
             print("Dir Izquierda On")
-            Label_Dir_Izq_On = Label( self.Root_TestDrive, image = self.Dir_Izq_On_TestDrive, bd =0).place(x=1200,y=280)
+            Label_Dir_Izq_On = Label( self.Root_TestDrive, image = self.Dir_Izq_On_TestDrive, bd =0).place(x=348,y=195)
             time.sleep(0.5)
-            Label_Dir_Izq_Off = Label( self.Root_TestDrive, image = self.Dir_Izq_Off_TestDrive, bd =0).place(x=1200,y=280)
+            Label_Dir_Izq_Off = Label( self.Root_TestDrive, image = self.Dir_Izq_Off_TestDrive, bd =0).place(x=348,y=195)
             time.sleep(0.5)
             x+=1
     def thread_direccion_izquierda(self,Thread):
@@ -222,11 +222,11 @@ class Test_Drive_Ventana_Principal:
         x=0
         while(x<6):
             print("Emergency On")
-            Label_Dir_Izq_On = Label( self.Root_TestDrive, image = self.Dir_Izq_On_TestDrive, bd =0).place(x=1200,y=280)
-            Label_Dir_Der_On = Label( self.Root_TestDrive, image = self.Dir_Der_On_TestDrive, bd =0).place(x=1340,y=280) 
+            Label_Dir_Izq_On = Label( self.Root_TestDrive, image = self.Dir_Izq_On_TestDrive, bd =0).place(x=348,y=195)
+            Label_Dir_Der_On = Label( self.Root_TestDrive, image = self.Dir_Der_On_TestDrive, bd =0).place(x=505,y=195) 
             time.sleep(0.5)
-            Label_Dir_Izq_Off = Label( self.Root_TestDrive, image = self.Dir_Izq_Off_TestDrive, bd =0).place(x=1200,y=280)
-            Label_Dir_Der_Off = Label( self.Root_TestDrive, image = self.Dir_Der_Off_TestDrive, bd =0).place(x=1340,y=280)
+            Label_Dir_Izq_Off = Label( self.Root_TestDrive, image = self.Dir_Izq_Off_TestDrive, bd =0).place(x=348,y=195)
+            Label_Dir_Der_Off = Label( self.Root_TestDrive, image = self.Dir_Der_Off_TestDrive, bd =0).place(x=505,y=195)
             time.sleep(0.5)
             x+=1        
     def thread_parqueo(self,Thread):
@@ -237,9 +237,9 @@ class Test_Drive_Ventana_Principal:
     def circulo_cambio(self):
         x=0
         while(x<7):
-            Button_CIRCLE_On_TestDrive = Button( self.Root_TestDrive, image = self.CIRCLE_On_TestDrive, bd=0).place(x=680,y=230)
+            Button_CIRCLE_On_TestDrive = Button( self.Root_TestDrive, image = self.CIRCLE_On_TestDrive, bd=0).place(x=679,y=218)
             time.sleep(0.5)
-            Button_CIRCLE_Off_TestDrive = Button( self.Root_TestDrive, image = self.CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=680,y=230)
+            Button_CIRCLE_Off_TestDrive = Button( self.Root_TestDrive, image = self.CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=679,y=218)
             time.sleep(0.5)
             x+=1
     def thread_circulo(self,Thread):
@@ -248,9 +248,9 @@ class Test_Drive_Ventana_Principal:
     def zigzag_cambio(self):
         x=0
         while(x<7):
-            Button_ZIGZAG_On_TestDrive = Button( self.Root_TestDrive, image = self.ZIGZAG_On_TestDrive, bd=0).place(x=700,y=175)
+            Button_ZIGZAG_On_TestDrive = Button( self.Root_TestDrive, image = self.ZIGZAG_On_TestDrive, bd=0).place(x=698,y=170)
             time.sleep(0.5)
-            Button_ZIGZAG_Off_TestDrive = Button( self.Root_TestDrive, image = self.ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=700,y=175)
+            Button_ZIGZAG_Off_TestDrive = Button( self.Root_TestDrive, image = self.ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=698,y=170)
             time.sleep(0.5)
             x+=1
     def thread_zigzag(self,Thread):
@@ -259,9 +259,9 @@ class Test_Drive_Ventana_Principal:
     def infinito_cambio(self):
         x=0
         while(x<7):
-            Button_INFINITE_On_TestDrive = Button( self.Root_TestDrive, image = self.INFINITE_On_TestDrive, bd=0).place(x=670,y=175)
+            Button_INFINITE_On_TestDrive = Button( self.Root_TestDrive, image = self.INFINITE_On_TestDrive, bd=0).place(x=672,y=170)
             time.sleep(0.5)
-            Button_INFINITE_Off_TestDrive = Button( self.Root_TestDrive, image = self.INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=670,y=175)
+            Button_INFINITE_Off_TestDrive = Button( self.Root_TestDrive, image = self.INFINITE_Off_TestDrive, bd=0, command = lambda:self.thread_infinito(Thread)).place(x=672,y=170)
             time.sleep(0.5)
             x+=1
     def thread_infinito(self,Thread):
@@ -271,18 +271,18 @@ class Test_Drive_Ventana_Principal:
         global mov_especial
         x=0
         while(x<1):
-            Button_CUSTOM_Off_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=680,y=265)
+            Button_CUSTOM_Off_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=679,y=256)
             time.sleep(0.3)
             i=0
             while(i<10):
-                    Button_CUSTOM1_On_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM1_On_TestDrive, bd=0).place(x=680,y=265)
+                    Button_CUSTOM1_On_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM1_On_TestDrive, bd=0).place(x=679,y=256)
                     time.sleep(0.3)
-                    Button_CUSTOM2_On_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM2_On_TestDrive, bd=0).place(x=680,y=265)
+                    Button_CUSTOM2_On_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM2_On_TestDrive, bd=0).place(x=679,y=256)
                     time.sleep(0.3)
-                    Button_CUSTOM3_On_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM3_On_TestDrive, bd=0).place(x=680,y=265)
+                    Button_CUSTOM3_On_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM3_On_TestDrive, bd=0).place(x=679,y=256)
                     time.sleep(0.3)
                     i+=1
-            Button_CUSTOM_Off_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=680,y=265)
+            Button_CUSTOM_Off_TestDrive = Button( self.Root_TestDrive, image = self.CUSTOM_Off_TestDrive, bd=0, command = lambda:self.thread_especial(Thread)).place(x=679,y=256)
             x+=1
     def thread_especial(self,Thread):
         p = threading.Thread(target = self.especial_cambio)
