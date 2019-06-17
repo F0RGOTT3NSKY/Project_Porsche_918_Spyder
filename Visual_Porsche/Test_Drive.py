@@ -155,12 +155,12 @@ class Test_Drive_Ventana_Principal:
         Label_Dir_Izq_Off = Label( Root_TestDrive, image = Dir_Izq_Off_TestDrive, bd =0).place(x=348,y=195)
         Label_Dir_Der_Off = Label( Root_TestDrive, image = Dir_Der_Off_TestDrive, bd =0).place(x=505,y=195)
         Label_Bateria = Label( Root_TestDrive, image = bateria_llena_TestDrive, bd =0).place(x=812,y=205)
-        Button_Moon = Button( Root_TestDrive, image = moon_TestDrive, bd = 0).place(x=810,y=174)
+        Button_Moon = Button( Root_TestDrive, image = sun_TestDrive, bd = 0).place(x=810,y=174)
         
 
         Button_Pedal_Clutch_TestDrive = Button( Root_TestDrive, image = Pedal_Clutch_TestDrive, bd=0).place(x=245,y=440)
-        Button_Pedal_Break_TestDrive = Button( Root_TestDrive, image = Pedal_Break_TestDrive, bd=0).place(x=400,y=450)
-        Button_Pedal_Accelerator_TestDrive = Button( Root_TestDrive, image = Pedal_Accelerator_TestDrive, bd=0).place(x=514,y=440)
+        Button_Pedal_Break_TestDrive = Button( Root_TestDrive, image = Pedal_Break_TestDrive, command = self.thread_pwm(Thread,0), bd=0).place(x=400,y=450)
+        Button_Pedal_Accelerator_TestDrive = Button( Root_TestDrive, image = Pedal_Accelerator_TestDrive, command = self.thread_pwm(Thread,1), bd=0).place(x=514,y=440)
         
         Button_Palanca_Dir_Izq_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Izq_TestDrive, bd=0, command =lambda:self.thread_direccion_izquierda(Thread)).place(x=275,y=298)
         Button_Palanca_Dir_Der_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Der_TestDrive, bd=0, command =lambda:self.thread_direccion_derecha(Thread)).place(x=515,y=298)
@@ -181,11 +181,36 @@ class Test_Drive_Ventana_Principal:
         Button_Girar_D = Button( Root_TestDrive, bd=0, image = Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=515,y=220)
         Button_Girar_I = Button( Root_TestDrive, bd=0, image = Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=312,y=222)
         Button_Girar_0 = Button( Root_TestDrive, bd=0, image = Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=416,y=360)
+
         
+                
         Root_TestDrive.mainloop()
         #           ____________________________
+        #__________/PWM
+    def pwm(self,x):
+        if(x==0):
+            x=-1020
+            while(x<0):
+                comando = "pwm:"+str(x)+";"
+                t = threading.Thread(target = self.send(comando))
+                t.start()
+                print(x)
+                x+=20
+        else:
+            x=0
+            while(x<1020):
+                comando = "pwm:"+str(x)+";"
+                t = threading.Thread(target = self.send(comando))
+                t.start()
+                print(x)
+                x+=5
+    
+    def thread_pwm(self,Thread,x):
+        p = threading.Thread(target = self.pwm(x))
+        p.start()
+                                                 
+        #           ____________________________
         #__________/SEND NUDES
-
     def send (self,comando):
         x=0
         while(x<1):
@@ -195,28 +220,18 @@ class Test_Drive_Ventana_Principal:
             x+=1
         #           ____________________________
         #__________/SENSOR DE LUZ
-    def oscuro(self):
+    def contar(self):
         x=0
-        while(x<1):
-            Label_Moon = Label( self.Root_TestDrive, image = self.moon_TestDrive, bd = 0, bg = "black").place(x=867,y=176)
-            time.sleep(0.5)
-            Label_Sun = Label( self.Root_TestDrive, image = self.sun_TestDrive, bd = 0).place(x=867,y=176)
+        while(x>=0):
+            print(x)
+            comando = "lx:;"
+            t = threading.Thread(target = self.send(comando))
+            t.start()
+            time.sleep(1)
             x+=1
-    def thread_luz_oscuridad(self,Thread):
-        p = threading.Thread(target = self.oscuro)
+    def thread_contar(self,Thread):
+        p = threading.Thread(target = self.contar)
         p.start()
-    def sol(self):
-        x=0
-        while(x<1):
-            Label_Sun = Label( self.Root_TestDrive, image = self.sun_TestDrive, bd = 0).place(x=867,y=176)
-            time.sleep(0.5)
-            Label_Moon = Label( self.Root_TestDrive, image = self.moon_TestDrive, bd = 0, bg = "black").place(x=867,y=176)
-            x+=1
-    def thread_sol(self,Thread):
-        p = threading.Thread(target = self.sol)
-        p.start()
-    #def thread_luz(self,Thread):
-        
         #           ____________________________
         #__________/DIRECCION
                   
