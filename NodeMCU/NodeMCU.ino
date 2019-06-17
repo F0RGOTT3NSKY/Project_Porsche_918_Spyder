@@ -492,7 +492,57 @@ String implementar(String llave, String valor){
         }
         break;
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
+      case 'p':
+        Serial.println("Parking");
+        data = B00001111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B00001111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B00001111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B00001111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B00001111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B00001111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B00001111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B00001111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        data = B11111111;
+        shiftOut(ab, clk, LSBFIRST, data);
+        delay(500);
+        
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
       default:
         Serial.println("Ninguna de las anteriores");
@@ -508,34 +558,17 @@ String implementar(String llave, String valor){
   else if (llave == "CIRCLE"){
     Serial.println("CIRCLE");
     Serial.println(valor);
-    switch(valor.toInt()){
-      case 1:
-        digitalWrite(ENA,HIGH);
-        digitalWrite(ENB,HIGH);
-        digitalWrite(OUTPUT1, HIGH);
-        digitalWrite(OUTPUT2, LOW);
-        digitalWrite(OUTPUT3, HIGH);
-        digitalWrite(OUTPUT4, LOW);
-        delay (2000);
-        digitalWrite(OUTPUT1, LOW);
-        digitalWrite(OUTPUT2, LOW);
-        digitalWrite(OUTPUT3, LOW);
-        digitalWrite(OUTPUT4, LOW);
-        break;
-      case -1:
-        digitalWrite(ENA,HIGH);
-        digitalWrite(ENB,HIGH);
-        digitalWrite(OUTPUT1, LOW);
-        digitalWrite(OUTPUT2, HIGH);
-        digitalWrite(OUTPUT3, HIGH);
-        digitalWrite(OUTPUT4, LOW);
-        delay (2000);
-        digitalWrite(OUTPUT1, LOW);
-        digitalWrite(OUTPUT2, LOW);
-        digitalWrite(OUTPUT3, LOW);
-        digitalWrite(OUTPUT4, LOW);
-        break;  
-      }      
+    digitalWrite(ENA,HIGH);
+    digitalWrite(ENB,HIGH);
+    digitalWrite(OUTPUT1, HIGH);
+    digitalWrite(OUTPUT2, LOW);
+    digitalWrite(OUTPUT3, HIGH);
+    digitalWrite(OUTPUT4, LOW);
+    delay (2000);
+    digitalWrite(OUTPUT1, LOW);
+    digitalWrite(OUTPUT2, LOW);
+    digitalWrite(OUTPUT3, LOW);
+    digitalWrite(OUTPUT4, LOW);     
   }
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
