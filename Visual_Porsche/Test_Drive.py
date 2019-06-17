@@ -105,12 +105,12 @@ class Test_Drive_Ventana_Principal:
         #           ____________________________
         #__________/CONSTRUCTOR DE VENTANA
         Root_TestDrive.title("Formula 1 - ADJ")
-        Root_TestDrive.config(bg="gray",width=1480,height=800)
+        Root_TestDrive.config(bg="gray",width=1200,height=800)
         Root_TestDrive.resizable(width=0,height=0)
         
         Label_Fondo_TestDrive = Label( Root_TestDrive, image = Fondo_TestDrive, bd =0).place(x=0,y=0)
         Label_Volante = Label( Root_TestDrive, image = Volante_TestDrive, bd =0).place(x=744,y=174)
-        Label_Escuderia = Label( Root_TestDrive, justify = CENTER, text = "PROPORSCHE2k19", font = ("Comic Sans MS",7), relief = "sunken", bg = "black", fg = "white").place(x=743,y=246)
+        Label_Escuderia = Label( Root_TestDrive, justify = CENTER, text = "                  PROPORSCHE2k19                  ", font = ("Comic Sans MS",6), relief = "sunken", bg = "black", fg = "white").place(x=743,y=248)
         Label_Dir_Izq_Off = Label( Root_TestDrive, image = Dir_Izq_Off_TestDrive, bd =0).place(x=348,y=195)
         Label_Dir_Der_Off = Label( Root_TestDrive, image = Dir_Der_Off_TestDrive, bd =0).place(x=505,y=195)
         
@@ -128,7 +128,7 @@ class Test_Drive_Ventana_Principal:
         
         Button_Drive_TestDrive = Button( Root_TestDrive, image = Drive_TestDrive, bd=0).place(x=865,y=340)
         Button_Reverse_TestDrive = Button( Root_TestDrive, image = Reverse_TestDrive, bd=0).place(x=865,y=367)
-        Button_Winner_TestDrive = Button( Root_TestDrive, image = Winner_TestDrive, bd=0).place(x=1350,y=353)
+        Button_Winner_TestDrive = Button( Root_TestDrive, image = Winner_TestDrive, bd=0).place(x=833,y=174)
         
         Button_CIRCLE_Off_TestDrive = Button( Root_TestDrive, image = CIRCLE_Off_TestDrive, bd=0, command = lambda:self.thread_circulo(Thread)).place(x=679,y=218)
         Button_ZIGZAG_Off_TestDrive = Button( Root_TestDrive, image = ZIGZAG_Off_TestDrive, bd=0, command = lambda:self.thread_zigzag(Thread)).place(x=698,y=170)
