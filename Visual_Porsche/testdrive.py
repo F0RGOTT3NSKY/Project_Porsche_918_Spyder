@@ -107,11 +107,27 @@ def atras(event):
         imaCounter -=0.8
     
         imalabel.config(text=int(imaCounter),font=("Comic Sans MS",7))
+
+def detener(event):
+    global imaCounter
+    if imaCounter >0:
+        if imaCounter==0:
+            imalabel.config(text="0",font=("Comic Sans MS",7))
+        else:
+            imaCounter -=0.8
+            imalabel.config(text=int(imaCounter),font=("Comic Sans MS",7))
+    else:
+        if imaCounter==0:
+            imalabel.config(text="0",font=("Comic Sans MS",7))
+        else:
+            imaCounter +=0.8
+            imalabel.config(text=int(imaCounter),font=("Comic Sans MS",7))
         
+            
     
 root.bind_all('<KeyPress-w>',adelante)
 root.bind_all('<KeyPress->s',atras)
-
+root.bind('<space>',detener) 
 
 imalabel=Label(root,text='0',bd=0,bg="#0B173B",fg='white',font=("Comic Sans MS",7))
 imalabel.place(x=418,y=130)
