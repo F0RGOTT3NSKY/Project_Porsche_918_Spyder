@@ -70,10 +70,6 @@ def Arriba(event):
 
 
 
-def adelante(event):
-    print(1)
-    
-
 
 def cambio2(event):
     return thread_sol()
@@ -82,7 +78,7 @@ def cambio(event):
     return thread_luz_oscuridad()    
         
 
-root.bind_all('<KeyPress-w>',adelante)
+
 root.bind_all("<KeyPress-Right>",R)
 root.bind_all("<KeyPress-Left>",L)
 root.bind_all("<KeyPress-Up>",Arriba)
