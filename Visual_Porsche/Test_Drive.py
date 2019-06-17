@@ -151,10 +151,10 @@ class Test_Drive_Ventana_Principal:
         
         Label_Fondo_TestDrive = Label( Root_TestDrive, image = Fondo_TestDrive, bd =0).place(x=0,y=0)
         Label_Volante = Label( Root_TestDrive, image = Volante_TestDrive, bd =0).place(x=744,y=174)
-        Label_Escuderia = Label( Root_TestDrive, justify = CENTER, text = "                  PROPORSCHE2k19                  ", font = ("Comic Sans MS",6), relief = "sunken", bg = "black", fg = "white").place(x=743,y=248)
+        Label_Escuderia = Label( Root_TestDrive, text = "                  PROPORSCHE2k19                  ", font = ("Comic Sans MS",6), relief = "sunken", bg = "black", fg = "white").place(x=743,y=248)
         Label_Dir_Izq_Off = Label( Root_TestDrive, image = Dir_Izq_Off_TestDrive, bd =0).place(x=348,y=195)
         Label_Dir_Der_Off = Label( Root_TestDrive, image = Dir_Der_Off_TestDrive, bd =0).place(x=505,y=195)
-        #Label_Bateria = Label( Root_TestDrive, image = bateria_llena_TestDrive, bd =0).place(x=857,y=205)
+        Label_Bateria = Label( Root_TestDrive, image = bateria_llena_TestDrive, bd =0).place(x=812,y=205)
         Button_Moon = Button( Root_TestDrive, image = moon_TestDrive, bd = 0).place(x=810,y=174)
         
 
@@ -181,9 +181,6 @@ class Test_Drive_Ventana_Principal:
         Button_Girar_D = Button( Root_TestDrive, bd=0, image = Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=515,y=220)
         Button_Girar_I = Button( Root_TestDrive, bd=0, image = Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=312,y=222)
         Button_Girar_0 = Button( Root_TestDrive, bd=0, image = Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=416,y=360)
-        
-        s = threading.Thread(target = self.thread_luz(Thread)) 
-        s.start()
         
         Root_TestDrive.mainloop()
         #           ____________________________
