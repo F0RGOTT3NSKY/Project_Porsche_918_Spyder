@@ -62,8 +62,9 @@ circle = "CIRCLE:;"
 zigzag = "ZIGZAG:;" 
 infinite = "INFINITE:;"
 custom = "CUSTOM:;"
-
-
+moon = PhotoImage(file = 'luna.png')
+sun = PhotoImage(file = 'sol.png')
+bateria_llena = PhotoImage(file = 'bateria_llena.png')
 
 #           ____________________________
 #__________/VENTANA PRINCIPAL
@@ -81,7 +82,7 @@ class Test_Drive_Ventana_Principal:
                  Volante_D_90_TestDrive, Volante_I_50_TestDrive, Volante_I_90_TestDrive, myCar_TestDrive, derecha_Testdrive,
                  izquierda_TestDrive, centro_TestDrive, direccional_der_TestDrive, direccional_izq_TestDrive, emergency_On_TestDrive,
                  emergency_Off_TestDrive, frontales_On_TestDrive, frontales_Off_TestDrive, circle_TestDrive,
-                 zigzag_TestDrive, infinite_TestDrive, custom_TestDrive):
+                 zigzag_TestDrive, infinite_TestDrive, custom_TestDrive, moon_TestDrive, sun_TestDrive, bateria_llena_TestDrive):
         #           ____________________________
         #__________/VARIABLES PRIVADAS
         self.Root_TestDrive = Root_TestDrive
@@ -137,8 +138,11 @@ class Test_Drive_Ventana_Principal:
         self.zigzag_TestDrive = zigzag_TestDrive
         self.infinite_TestDrive = infinite_TestDrive
         self.custom_TestDrive = custom_TestDrive
-        
+        self.moon_TestDrive = moon_TestDrive
+        self.sun_TestDrive = sun_TestDrive
+        self.bateria_llena_TestDrive = bateria_llena_TestDrive
         myCar_TestDrive.start()
+        
         #           ____________________________
         #__________/CONSTRUCTOR DE VENTANA
         Root_TestDrive.title("Formula 1 - ADJ")
@@ -150,6 +154,8 @@ class Test_Drive_Ventana_Principal:
         Label_Escuderia = Label( Root_TestDrive, justify = CENTER, text = "                  PROPORSCHE2k19                  ", font = ("Comic Sans MS",6), relief = "sunken", bg = "black", fg = "white").place(x=743,y=248)
         Label_Dir_Izq_Off = Label( Root_TestDrive, image = Dir_Izq_Off_TestDrive, bd =0).place(x=348,y=195)
         Label_Dir_Der_Off = Label( Root_TestDrive, image = Dir_Der_Off_TestDrive, bd =0).place(x=505,y=195)
+        #Label_Bateria = Label( Root_TestDrive, image = bateria_llena_TestDrive, bd =0).place(x=857,y=205)
+        Button_Moon = Button( Root_TestDrive, image = moon_TestDrive, bd = 0).place(x=810,y=174)
         
 
         Button_Pedal_Clutch_TestDrive = Button( Root_TestDrive, image = Pedal_Clutch_TestDrive, bd=0).place(x=245,y=440)
@@ -175,23 +181,45 @@ class Test_Drive_Ventana_Principal:
         Button_Girar_D = Button( Root_TestDrive, bd=0, image = Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=515,y=220)
         Button_Girar_I = Button( Root_TestDrive, bd=0, image = Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=312,y=222)
         Button_Girar_0 = Button( Root_TestDrive, bd=0, image = Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=416,y=360)
-
+        
+        s = threading.Thread(target = self.thread_luz(Thread)) 
+        s.start()
         
         Root_TestDrive.mainloop()
         #           ____________________________
         #__________/SEND NUDES
 
     def send (self,comando):
-        """
-        Ejemplo como enviar un mensaje sencillo sin importar la respuesta
-        """
-        
         x=0
         while(x<1):
             mns = str(comando)
             myCar.send(mns)
-            print ("Enviando mensaje")
+            print ("Enviando mensaje: ",comando)
             x+=1
+        #           ____________________________
+        #__________/SENSOR DE LUZ
+    def oscuro(self):
+        x=0
+        while(x<1):
+            Label_Moon = Label( self.Root_TestDrive, image = self.moon_TestDrive, bd = 0, bg = "black").place(x=867,y=176)
+            time.sleep(0.5)
+            Label_Sun = Label( self.Root_TestDrive, image = self.sun_TestDrive, bd = 0).place(x=867,y=176)
+            x+=1
+    def thread_luz_oscuridad(self,Thread):
+        p = threading.Thread(target = self.oscuro)
+        p.start()
+    def sol(self):
+        x=0
+        while(x<1):
+            Label_Sun = Label( self.Root_TestDrive, image = self.sun_TestDrive, bd = 0).place(x=867,y=176)
+            time.sleep(0.5)
+            Label_Moon = Label( self.Root_TestDrive, image = self.moon_TestDrive, bd = 0, bg = "black").place(x=867,y=176)
+            x+=1
+    def thread_sol(self,Thread):
+        p = threading.Thread(target = self.sol)
+        p.start()
+    #def thread_luz(self,Thread):
+        
         #           ____________________________
         #__________/DIRECCION
                   
@@ -404,7 +432,7 @@ Test_Drive_Ventana_Principal(Root, Fondo, Icono, Volante, Dir_Izq_Off, Dir_Der_O
                              CUSTOM1_On, CUSTOM2_On, CUSTOM3_On, Girar_D, Girar_I, Girar_0, Girar_D_On,
                              Girar_I_On, Girar_0_On, Volante_D_50, Volante_D_90, Volante_I_50, Volante_I_90,
                              myCar, derecha, izquierda, centro, direccional_der, direccional_izq, emergency_On,
-                             emergency_Off, frontales_On, frontales_Off, circle, zigzag, infinite, custom)
+                             emergency_Off, frontales_On, frontales_Off, circle, zigzag, infinite, custom, moon, sun, bateria_llena)
 
 
 
