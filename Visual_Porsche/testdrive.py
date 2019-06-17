@@ -28,6 +28,12 @@ volante5=PhotoImage(file='volante_i_90.png')
 L_volante=Label(root,image=volante)
 L_volante.place(x=1202,y=0)
 
+
+
+
+
+## DIRECCIONALES ###
+
 dir_default=PhotoImage(file="direccion_izquierda_default.png")        
 direccional_default=Label(root,image=dir_default).place(x=1202,y=500)
 
@@ -36,9 +42,7 @@ direccional_derecha_default=Label(root,image=dir_derecha_default).place(x=1340,y
 
 
 Escuderia=Label(root,justify=CENTER,text="PROPORSCHE2k19",font=("Comic Sans MS",7),relief="sunken",bg="black",fg="white").place(x=744,y=242)
-def r(event):
-    print("hola")
-root.bind("<Right>",r)
+
 #=======
 Escuderia=Label(root,justify=CENTER,text="PROPORSCHE2k19",font=("Comic Sans MS",7),relief="sunken",bg="black",fg="white").place(x=746,y=244)
 ## BATERIAS  ###
@@ -85,6 +89,36 @@ root.bind_all("<KeyPress-Up>",Arriba)
 root.bind_all("<KeyPress-s>",cambio)
 root.bind_all("<KeyPress-l>",cambio2)
 
+imaCounter = 0
+
+
+def adelante(event):
+    global imaCounter
+    if imaCounter >=200:
+        imalabel.config(text="200kmph",font=("Comic Sans MS",7))
+    else:
+        
+        imaCounter +=0.8
+    
+        imalabel.config(text=int(imaCounter),font=("Comic Sans MS",7))
+
+def atras(event):
+    global imaCounter
+    if imaCounter <=-200:
+        imalabel.config(text="-200kmph",font=("Comic Sans MS",7))
+    else:
+        
+        imaCounter -=0.8
+    
+        imalabel.config(text=int(imaCounter),font=("Comic Sans MS",7))
+        
+    
+root.bind_all('<KeyPress-w>',adelante)
+root.bind_all('<KeyPress->s',atras)
+
+
+imalabel=Label(root,text='0',bd=0,bg="#0B173B",fg='white',font=("Comic Sans MS",7))
+imalabel.place(x=418,y=130)
 
 
     ### botones con imagenes ###
@@ -93,8 +127,15 @@ closh=Button(root,bd=0,image=pedal_closh).place(x=245,y=440)
 pedal_freno=PhotoImage(file="freno.png")
 freno=Button(root,bd=0,image=pedal_freno).place(x=400,y=440)
 
+
+
+
+##VELOCIDAD ###
+
+
 pedal_gas=PhotoImage(file="gas.png")
 gas=Button(root,bd=0,image=pedal_gas).place(x=514,y=440)
+
 
 palanca_direccional=PhotoImage(file="direccional.png")
 direccional_izquierda=Button(root,bd=0,image=palanca_direccional,command=lambda :thread_direccion_izquierda()).place(x=275,y=298)
@@ -149,7 +190,9 @@ mov_zigzag=Button(root,image=zigzag,command=lambda: thread_zigzag()).place(x=938
 infinito=PhotoImage(file="infinito_apagado.png")
 mov_infinito=Button(root, image=infinito,command=lambda: thread_infinito()).place(x=670,y=185)
 ######################################################################### BOTONES PARA LAS FUNCIONES DEL CARRO ########################################## 
+## BOTON INFINITO ##
 
+boton_infinito=Button(root,text='Sensor de luces',bd=0,fg="white",bg="black",command=lambda: thread_contar()).place(x=10,y=0)
 ## LUCES DE PARQUEO ### 
 
 emergencia=PhotoImage(file="emergencia_mini.png")
@@ -445,6 +488,23 @@ def thread_sol():
     p=threading.Thread(target=sol)
     p.start()
 
+    
+def contar():
+        
+        x=0
+        while(x>=0):
+            
+            print(x)
+            time.sleep(1)
+  
+            
+            
+            
+            x+=1
+
+def thread_contar():
+    p=threading.Thread(target=contar)
+    p.start()
 
 root.mainloop()
 ################################################################################################## FUNCIONES ##############################################################################
