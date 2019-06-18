@@ -1,2 +1,2 @@
-[['L. Hamilton','Mercedes-AMG F1 M10'],['V.Bottas','Ferrari 064 '],['S.Vettel','Honda RA619H9?'],
+[['L. Hamilton','Mercedes-AMG F1 M10'],['V.Bottas','Ferrari 064 '],['S.Vettel','Honda RA619H9'],
 ['M.Verstappen','Renault E-Tech 19'],['C.Leclerc','Ferrari 06413'],['P.Gasly','Renault E-Tech 1916'],['C.Sainz Jr','BWT Mercedes-AMG F1'],['D.Ricciardo','Ferrari 06426'],['K.magnussen','Honda RA619H28'],['S.Pérez','Mercedes-AMG F1 M10 EQ Power+31']]

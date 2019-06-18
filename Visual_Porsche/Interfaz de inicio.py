@@ -127,9 +127,6 @@ def ventana_principal():
     drive = Button(root, text="TEST DRIVE",width=18,font=("Comic Sans MS",10),justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15)
     drive.place(x=1020,y=300)
 
-    drive = Button(root, text="TEST DRIVE",width=18,font=("Comic Sans MS",10),justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15)
-    drive.place(x=820,y=220)
-
 
     editar = Button(root, text="EDITAR", width=18,font=("Comic Sans MS",10),justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15)
     editar.place(x=1020,y=400)
