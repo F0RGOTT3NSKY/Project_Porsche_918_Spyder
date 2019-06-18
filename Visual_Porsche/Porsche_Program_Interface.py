@@ -109,7 +109,7 @@ class Main_Interface:
     
         minim = Button(self.Root_Main, text="MINIMIZAR", command=self.Root_Main.iconify,justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15).place(x=1030,y=10)
         salida = Button(self.Root_Main, text="SALIR", command=self.Root_Main.destroy,justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15).place(x=950,y=10)
-        tabla = Button(self.Root_Main, text="TABLA DE POSICIONES",font=("Comic Sans MS",10),width=18, justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15,command = self.Ventana_Tabla).place(x=950,y=100)
+        tabla = Button(self.Root_Main, text="TABLA DE POSICIONES",font=("Comic Sans MS",10),width=18, justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15).place(x=950,y=100)
         historial = Button(self.Root_Main, text="HISTORIAL DE AUTOS",font=("Comic Sans MS",10),width=18 ,justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15).place(x=950,y=160)
         drive = Button(self.Root_Main, text="TEST DRIVE",width=18,font=("Comic Sans MS",10),justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15,command = self.Ventana_TestDrive).place(x=950,y=220)
         editar = Button(self.Root_Main, text="EDITAR", width=18,font=("Comic Sans MS",10),justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15).place(x=950,y=280)
@@ -454,112 +454,6 @@ class Main_Interface:
                     i+=1
             Button_CUSTOM_Off_TestDrive = Button( self.Root_Main, image = self.CUSTOM_Off_TestDrive, bd=0, command = lambda:self.seleccion_moviento(3)).place(x=679,y=256)
             x+=1
-    def Tabla_Cambio(self):
-        self.Root_Main.destroy()
-        self.Main()
-    def Ventana_Tabla(self):
-        self.Root_Main.title("TABLA DE POSICIONES")
-        self.Root_Main.minsize(1200,800)
-        Label_Fondo = Label(self.Root_Main,image= self.Fondo_Blanco_Main).place(x=0,y=0)
-        Buttont = Button(self.Root_Main, text = "MAIN",font=("Comic Sans MS",10),justify=CENTER,bg="#800000",fg="white",command = self.devolver_ventana_principal).place(x=1150,y=0)
-        
-
-        label_1 = Label(self.Root_Main, text = "Nombre",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0)
-        label_2 = Label(self.Root_Main, text = "Edad",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 1)
-        label_3 = Label(self.Root_Main, text = "Nacionalidad",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 2)
-        label_4 = Label(self.Root_Main, text = "Temporada",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 3)
-        label_5 = Label(self.Root_Main, text = "Participaciones",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 4)
-        label_6 = Label(self.Root_Main, text = "Destacadas",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 5)
-        label_7 = Label(self.Root_Main, text = "Cant. en podio",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 6)
-        label_8 = Label(self.Root_Main, text = "Movimiento",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 7)
-        label_9 = Label(self.Root_Main, text = "Score",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 8)
-        orden = Button(self.Root_Main, text = '↕',bg = '#c60202',fg="white", font = ('Arial', 12)).grid(row = 0, column = 10)
-
-        self.crear()
-        
-        self.Root_Main.mainloop()
-    def crear(self):
-        datos = self.fileR()
-        pilotos = 0
-        categoría = 1
-        for pilotos in range(0,10):
-            for categoría in range(0,9):
-                global label
-                label = StringVar()
-                Label(self.Root_Main, textvariable = label,bg = '#c60202',fg="white").grid(row = pilotos + 1, column = categoría, sticky=W)
-                label.set(datos[0][pilotos][categoría])
-    def fileR(self):
-        file=open("Pilotos.txt","r")
-        texto=file.read()
-        datos=eval(texto)
-        file.close()
-        return datos
-    def flecha(self,datos,i,j):
-        global label
-        if(i == 5):
-            fileW(datos)
-            return crear()
-        else:
-            temp = datos[0][i]
-            datos[0][i] = datos[0][j]
-            datos[0][j] = temp
-            return flecha(datos,i+1,j-1)
-    def fileW(self,com):
-        newfile = open("Pilotos.txt","w")
-        newfile.write(str(com))
-        newfile.close()
-        return com
-    def carro(self,i):
-        Lista = fileR()
-        Lista = Lista[0]
-        Carros = fileR()
-        Carros = Carros[1]
-        CAR = Lista[i][9]
-        línea = 0
-        while línea != len(Carros):
-            if(CAR == Carros[línea][0]):
-                return infocar(Carros,línea)
-            else:
-                línea +=1
-    def infocar(self,Carros,i):
-        info = Toplevel()
-        info.minsize(700,300)
-        info.resizable(width = NO,height = NO)
-
-        #LABELS DE CABECERA
-
-        N_Car = Label(info, text = "Nombre:", font = ('Arial',17)).place(x = 0,y = 0)
-        M_Car = Label(info, text = "Modelo:", font = ('Arial',17)).place(x = 0,y = 25)
-        P_Car = Label(info, text = "País:", font = ('Arial',17)).place(x = 0,y = 50)
-        E_Car = Label(info, text = "Estado:", font = ('Arial',17)).place(x = 0,y = 75)
-        C_Car = Label(info, text = "Consumo:", font = ('Arial',17)).place(x = 0,y = 100)
-        S_Car = Label(info, text = "Sensores:", font = ('Arial',17)).place(x = 0,y = 125)
-        Pe_Car = Label(info, text = "Peso(Kg):", font = ('Arial',17)).place(x = 0,y = 150)
-        Efi_Car = Label(info, text = "Eficiencia:", font = ('Arial',17)).place(x = 0,y = 175)
-        Se_Car = Label(info, text = "Temporada:", font = ('Arial',17)).place(x = 0,y = 200)
-        B_Car = Label(info, text = "Baterías:", font = ('Arial',17)).place(x = 0,y = 225)
-        P_B_Car = Label(info, text = "PpB:", font = ('Arial',17)).place(x = 0,y = 250)
-        T_B_Car = Label(info, text = "Tensión:", font = ('Arial',17)).place(x = 0,y = 275)
-        
-        #LA INFO DE CADA CARRO
-        Nombre = Label(info, text = Carros[i][0], font = ('Arial',15)).place(x = 100,y = 0)
-        Modelo = Label(info, text = Carros[i][1], font = ('Arial',15)).place(x = 100,y = 25)
-        País = Label(info, text = Carros[i][2], font = ('Arial',15)).place(x = 100,y = 50)
-
-        F_CAR=PhotoImage(file=Carros[i][3])
-        F_CARr=Label(info,image=F_CAR,width=200,height=100).place(x=500,y=0)
-        
-        Estado = Label(info, text = Carros[i][4], font = ('Arial',15)).place(x = 100,y = 75)
-        Consumo = Label(info, text = Carros[i][5], font = ('Arial',15)).place(x = 100,y = 100)
-        Sensores = Label(info, text = Carros[i][6], font = ('Arial',15)).place(x = 100,y = 125)
-        peso = Label(info, text = Carros[i][7], font = ('Arial',15)).place(x = 100,y = 150)
-        Eficiencia = Label(info, text = Carros[i][8], font = ('Arial',15)).place(x = 100,y = 175)
-        Season = Label(info, text = Carros[i][9], font = ('Arial',15)).place(x = 100,y = 200)
-        Baterías = Label(info, text = Carros[i][10], font = ('Arial',15)).place(x = 100,y = 225)
-        P_baterías = Label(info, text = Carros[i][11], font = ('Arial',15)).place(x = 100,y = 250)
-        T_Baterías = Label(info, text = Carros[i][12], font = ('Arial',15)).place(x = 100,y = 275)    
-
-        info.mainloop()
 
 
 #           ____________________________
