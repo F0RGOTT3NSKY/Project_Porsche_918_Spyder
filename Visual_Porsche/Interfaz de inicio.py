@@ -4,9 +4,6 @@ from tkinter import *
 import random
 from random import randint
 
- 
-
-
 def ventana_principal():
     
     root=Tk()
