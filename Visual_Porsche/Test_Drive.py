@@ -71,20 +71,13 @@ Pedal = "Ninguno"
 #           ____________________________
 #__________/VENTANA PRINCIPAL
 class Test_Drive_Ventana_Principal:
-    def __init__(self, Root_TestDrive, Fondo_TestDrive, Icono_TestDrive, Volante_TestDrive,
-                 Dir_Izq_Off_TestDrive, Dir_Der_Off_TestDrive, Pedal_Clutch_TestDrive,
-                 Pedal_Break_TestDrive, Pedal_Accelerator_TestDrive, Palanca_Dir_Izq_TestDrive,
-                 Palanca_Dir_Der_TestDrive, Emergency_TestDrive, Headlights_Off_TestDrive,
-                 Headlights_On_TestDrive, Drive_TestDrive, Reverse_TestDrive, ZIGZAG_Off_TestDrive,
-                 INFINITE_Off_TestDrive, CIRCLE_Off_TestDrive, Winner_TestDrive, CUSTOM_Off_TestDrive,
-                 Dir_Der_On_TestDrive, Dir_Izq_On_TestDrive, CIRCLE_On_TestDrive, ZIGZAG_On_TestDrive,
-                 INFINITE_On_TestDrive, CUSTOM1_On_TestDrive, CUSTOM2_On_TestDrive, CUSTOM3_On_TestDrive,
-                 Girar_D_TestDrive, Girar_I_TestDrive, Girar_0_TestDrive, Girar_D_On_TestDrive,
-                 Girar_I_On_TestDrive, Girar_0_On_TestDrive, Volante_D_50_TestDrive,
-                 Volante_D_90_TestDrive, Volante_I_50_TestDrive, Volante_I_90_TestDrive, myCar_TestDrive, derecha_Testdrive,
-                 izquierda_TestDrive, centro_TestDrive, direccional_der_TestDrive, direccional_izq_TestDrive, emergency_On_TestDrive,
-                 emergency_Off_TestDrive, frontales_On_TestDrive, frontales_Off_TestDrive, circle_TestDrive,
-                 zigzag_TestDrive, infinite_TestDrive, custom_TestDrive, moon_TestDrive, sun_TestDrive, bateria_llena_TestDrive, velocidad_TestDrive, pwm_controller_TestDrive, Pedal_TestDrive):
+    def __init__(self, Root_TestDrive, Fondo_TestDrive, Icono_TestDrive, Volante_TestDrive, Dir_Izq_Off_TestDrive, Dir_Der_Off_TestDrive, Pedal_Clutch_TestDrive, Pedal_Break_TestDrive, Pedal_Accelerator_TestDrive,
+                 Palanca_Dir_Izq_TestDrive, Palanca_Dir_Der_TestDrive, Emergency_TestDrive, Headlights_Off_TestDrive, Headlights_On_TestDrive, Drive_TestDrive, Reverse_TestDrive, ZIGZAG_Off_TestDrive,
+                 INFINITE_Off_TestDrive, CIRCLE_Off_TestDrive, Winner_TestDrive, CUSTOM_Off_TestDrive, Dir_Der_On_TestDrive, Dir_Izq_On_TestDrive, CIRCLE_On_TestDrive, ZIGZAG_On_TestDrive,
+                 INFINITE_On_TestDrive, CUSTOM1_On_TestDrive, CUSTOM2_On_TestDrive, CUSTOM3_On_TestDrive, Girar_D_TestDrive, Girar_I_TestDrive, Girar_0_TestDrive, Girar_D_On_TestDrive,
+                 Girar_I_On_TestDrive, Girar_0_On_TestDrive, Volante_D_50_TestDrive, Volante_D_90_TestDrive, Volante_I_50_TestDrive, Volante_I_90_TestDrive, myCar_TestDrive, derecha_Testdrive,
+                 izquierda_TestDrive, centro_TestDrive, direccional_der_TestDrive, direccional_izq_TestDrive, emergency_On_TestDrive, emergency_Off_TestDrive, frontales_On_TestDrive, frontales_Off_TestDrive,
+                 circle_TestDrive, zigzag_TestDrive, infinite_TestDrive, custom_TestDrive, moon_TestDrive, sun_TestDrive, bateria_llena_TestDrive, velocidad_TestDrive, pwm_controller_TestDrive, Pedal_TestDrive):
         #           ____________________________
         #__________/VARIABLES PRIVADAS
         self.Root_TestDrive = Root_TestDrive
@@ -501,15 +494,10 @@ class Test_Drive_Ventana_Principal:
         
 #           ____________________________
 #__________/INICIAR
-Test_Drive_Ventana_Principal(Root, Fondo, Icono, Volante, Dir_Izq_Off, Dir_Der_Off,
-                             Pedal_Clutch, Pedal_Break, Pedal_Accelerator, Palanca_Dir_Izq,
-                             Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On, Drive,
-                             Reverse, ZIGZAG_Off, INFINITE_Off, CIRCLE_Off, Winner, CUSTOM_Off,
-                             Dir_Der_On, Dir_Izq_On, CIRCLE_On, ZIGZAG_On , INFINITE_On,
-                             CUSTOM1_On, CUSTOM2_On, CUSTOM3_On, Girar_D, Girar_I, Girar_0, Girar_D_On,
-                             Girar_I_On, Girar_0_On, Volante_D_50, Volante_D_90, Volante_I_50, Volante_I_90,
-                             myCar, derecha, izquierda, centro, direccional_der, direccional_izq, emergency_On,
-                             emergency_Off, frontales_On, frontales_Off, circle, zigzag, infinite, custom, moon, sun, bateria_llena, velocidad, pwm_controller, Pedal)
+Test_Drive_Ventana_Principal(Root, Fondo, Icono, Volante, Dir_Izq_Off, Dir_Der_Off, Pedal_Clutch, Pedal_Break, Pedal_Accelerator, Palanca_Dir_Izq, Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On, Drive,
+                             Reverse, ZIGZAG_Off, INFINITE_Off, CIRCLE_Off, Winner, CUSTOM_Off, Dir_Der_On, Dir_Izq_On, CIRCLE_On, ZIGZAG_On , INFINITE_On, CUSTOM1_On, CUSTOM2_On, CUSTOM3_On, Girar_D, Girar_I, Girar_0, Girar_D_On,
+                             Girar_I_On, Girar_0_On, Volante_D_50, Volante_D_90, Volante_I_50, Volante_I_90,myCar, derecha, izquierda, centro, direccional_der, direccional_izq, emergency_On, emergency_Off, frontales_On,
+                             frontales_Off, circle, zigzag, infinite, custom, moon, sun, bateria_llena, velocidad, pwm_controller, Pedal)
 
 
 
