@@ -106,147 +106,14 @@ class Main_Interface:
         patrocinador1=Label(self.Root_Main,image=self.patrocinador_imagen_Main,relief="solid").place(x=310,y=140)
         patrocinador2=Label(self.Root_Main,image=self.patrocinador2_imagen_Main,relief="solid").place(x=440,y=140)
         patrocinador3=Label(self.Root_Main,image=self.patrocinador3_imagen_Main,relief="solid").place(x=650,y=140)
-    
         minim = Button(self.Root_Main, text="MINIMIZAR", command=self.Root_Main.iconify,justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15).place(x=1030,y=10)
         salida = Button(self.Root_Main, text="SALIR", command=self.Root_Main.destroy,justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15).place(x=950,y=10)
-
         tabla = Button(self.Root_Main, text="TABLA DE POSICIONES",font=("Comic Sans MS",10),width=18, justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15,command = self.Ventana_Tabla).place(x=950,y=100)
-        historial = Button(self.Root_Main, text="HISTORIAL DE AUTOS",font=("Comic Sans MS",10),width=18 ,justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15,command = self.ventana_principal).place(x=950,y=160)
-        drive = Button(self.Root_Main, text="TEST DRIVE",width=18,font=("Comic Sans MS",10),justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15,command = self.abrir).place(x=950,y=220)
-
-        tabla = Button(self.Root_Main, text="TABLA DE POSICIONES",font=("Comic Sans MS",10),width=18, justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15).place(x=950,y=100)
         historial = Button(self.Root_Main, text="HISTORIAL DE AUTOS",font=("Comic Sans MS",10),width=18 ,justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15).place(x=950,y=160)
         drive = Button(self.Root_Main, text="TEST DRIVE",width=18,font=("Comic Sans MS",10),justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15,command = self.Ventana_TestDrive).place(x=950,y=220)
-
         editar = Button(self.Root_Main, text="EDITAR", width=18,font=("Comic Sans MS",10),justify=CENTER,bg="#454545",fg="white",relief="raised",bd=15).place(x=950,y=280)
         about = Button(self.Root_Main, text="MÁS...",font=("Comic Sans MS",10),width=18,justify=CENTER,bg="#800000",fg="white",relief="raised",bd=15,command = self.Ventana_About).place(x=950,y=340)
-
         self.Root_Main.mainloop()
-
-        
-    def abrir(self):
-        self.Root_Main.destroy()
-        self.ventana_principal()
-    
-    def ventana_principal(self):
-        self.Root_Main.title("historial de autos")
-        icono=self.Root_Main.iconbitmap('f1logo.ico')
-        self.Root_Main.resizable(width=False,height=False)
-        self.Root_Main.config(width=1200,height=800,bg="gray")
-        fondo=PhotoImage(file='fondo_para_historial.png')
-        fondo_porsche=Label(self.Root_Main,image=fondo).place(x=0,y=0)
-
-        devolver=PhotoImage(file='girar_izquierda_press.png')
-        boton_de_devolver=Button(self.Root_Main,image=devolver,relief="raised").place(x=1100,y=700)
-
-        ### BOTONES DE VEHICULOS ###
-
-        vehiculo1=Button(self.Root_Main,fg="white",text="Mercedes-AMG F1 M10",bg="#f22424",relief="raised",bd=10,command=lambda: self.revisar(1)).place(x=70,y=10)
-
-        vehiculo2=Button(self.Root_Main,fg="white",text="Ferrari 064",bg="#f22424",relief="raised",bd=10,command=lambda: self.revisar(2)).place(x=70,y=100)
-
-        vehiculo3=Button(self.Root_Main,fg="white",text="Honda RA619H9",bg="#f22424",relief="raised",bd=10).place(x=70,y=190)
-
-        vehiculo4=Button(self.Root_Main,fg="white",text="Renault E-Tech 19",bg="#f22424",bd=10,relief="raised").place(x=70,y=280)
-
-        vehiculo5=Button(self.Root_Main,fg="white",text="Ferrari 06413",bg="#f22424",bd=10,relief="raised").place(x=70,y=370)
-
-        vehiculo6=Button(self.Root_Main,fg="white",text="Renault E-Tech 1916",bg="#f22424",bd=10,relief="raised").place(x=900,y=10)
-
-        vehiculo7=Button(self.Root_Main,fg="white",text="BWT Mercedes-AMG F1",bg="#f22424",bd=10,relief="raised").place(x=900,y=100)
-
-        vehiculo8=Button(self.Root_Main,fg="white",text="Ferrari 06426",bg="#f22424",bd=10,relief="raised").place(x=900,y=190)
-
-        vehiculo9=Button(self.Root_Main,fg="white",text="Honda RA619H28",bg="#f22424",bd=10,relief="raised").place(x=900,y=280)
-
-        vehiculo10=Button(self.Root_Main,fg="white",text="Mercedes-AMG F1 M10 EQ Power+31",bg="#f22424",bd=10,relief="raised").place(x=900,y=370)
-        self.Root_Main.mainloop()
-    def ventana1(self):
-        ## VENTANA 1 ## 
-        self.ventana1=Toplevel()
-        self.ventana1.config(width=500,height=500)
-        pistaIma=PhotoImage(file='pista.png')
-        self.ventana1.resizable(width=False,height=False)
-        pista=Label(self.ventana1,image=pistaIma).place(x=0,y=0)
-        icono=self.ventana1.iconbitmap('f1logo.ico')
-        vehiculo1=PhotoImage(file='auto1.png')
-        carro1=Label(self.ventana1,image=vehiculo1)
-        carro1.place(x=0,y=0)
-        ### ESPECIFICACIONES ##
-        nombre=Label(self.ventana1,text='nombre:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=140)
-        pais=Label(self.ventana1,text='Pais:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=170)
-        modelo=Label(self.ventana1,text='Modelo:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=200)
-        estado=Label(self.ventana1,text='Estado:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=230)
-        consumo=Label(self.ventana1,text='Consumo:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=260)
-        sensores=Label(self.ventana1,text='Sensores:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=290)
-        peso=Label(self.ventana1,text='Peso:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=320)
-        baterias=Label(self.ventana1,text='baterias:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=350)
-        tension=Label(self.ventana1,text='tension:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=380)
-        eficiencia=Label(self.ventana1,text='Eficiencia:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=410)
-        temporada=Label(self.ventana1,text='Temporada:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=440)
-        ppB=Label(self.ventana1,text='PPB:',bd=4,bg="black",fg="white",width=15 ).place(x=10,y=470)
-        
-        ### RESPUESTA  ###
-        nombre=Label(self.ventana1,text='Mercedes-AMG',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=140)
-        pais=Label(self.ventana1,text='FINLANDIA',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=170)
-        modelo=Label(self.ventana1,text='2019',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=200)
-        estado=Label(self.ventana1,text='Disponible',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=230)
-        consumo=Label(self.ventana1,text='1,29V',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=260)
-        sensores=Label(self.ventana1,text='Luz',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=290)
-        peso=Label(self.ventana1,text='744kg',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=320)
-        baterias=Label(self.ventana1,text='1',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=350)
-        tension=Label(self.ventana1,text='0,29V',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=380)
-        eficiencia=Label(self.ventana1,text='8',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=410)
-        temporada=Label(self.ventana1,text='2016',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=440)
-        ppB=Label(self.ventana1,text='5',bd=4,bg="black",fg="white",width=15 ).place(x=300,y=470)
-        
-        self.ventana1.mainloop()
-        
-    def ventana2(self):
-        self.ventana2=Toplevel()
-        self.ventana2.config(width=500,height=500,bg="black")
-        icono=self.ventana2.iconbitmap('f1logo.ico')
-        self.ventana2.resizable(width=False,height=False)
-        pistaIma=PhotoImage(file='pista.png')
-        pista=Label(self.ventana2,image=pistaIma).place(x=0,y=0)
-        vehiculo2=PhotoImage(file='auto2.png')
-        carro2=Label(self.ventana2,image=vehiculo2)
-        carro2.place(x=0,y=0)
-        nombre=Label(self.ventana2,text='nombre:',bd=4,bg="black",fg="white").place(x=10,y=140)
-        pais=Label(self.ventana2,text='Pais:',bd=4,bg="black",fg="white").place(x=10,y=170)
-        modelo=Label(self.ventana2,text='Modelo:',bd=4,bg="black",fg="white").place(x=10,y=200)
-        estado=Label(self.ventana2,text='Estado:',bd=4,bg="black",fg="white").place(x=10,y=230)
-        consumo=Label(self.ventana2,text='Consumo:',bd=4,bg="black",fg="white").place(x=10,y=260)
-        sensores=Label(self.ventana2,text='Sensores:',bd=4,bg="black",fg="white").place(x=10,y=290)
-        peso=Label(self.ventana2,text='Peso:',bd=4,bg="black",fg="white").place(x=10,y=320)
-        baterias=Label(self.ventana2,text='baterias:',bd=4,bg="black",fg="white").place(x=10,y=350)
-        tension=Label(self.ventana2,text='tension:',bd=4,bg="black",fg="white").place(x=10,y=380)
-        eficiencia=Label(self.ventana2,text='Eficiencia:',bd=4,bg="black",fg="white").place(x=10,y=410)
-        temporada=Label(self.ventana2,text='Temporada:',bd=4,bg="black",fg="white").place(x=10,y=440)
-        ppB=Label(self.ventana2,text='PPB:',bd=4,bg="black",fg="white").place(x=10,y=470)
-        ### RESPUESTA  ###
-        nombre=Label(self.ventana2,text='FERRARI 064:',bd=4,bg="black",fg="white").place(x=300,y=140)
-        pais=Label(self.ventana2,text='ESPAÑA',bd=4,bg="black",fg="white").place(x=300,y=170)
-        modelo=Label(self.ventana2,text='2018',bd=4,bg="black",fg="white").place(x=300,y=200)
-        estado=Label(self.ventana2,text='Agotado',bd=4,bg="black",fg="white").place(x=300,y=230)
-        consumo=Label(self.ventana2,text='2,40V',bd=4,bg="black",fg="white").place(x=300,y=260)
-        sensores=Label(self.ventana2,text='LUZ-PROXIMIDAD',bd=4,bg="black",fg="white").place(x=300,y=290)
-        peso=Label(self.ventana2,text='800KG',bd=4,bg="black",fg="white").place(x=300,y=320)
-        baterias=Label(self.ventana2,text='4',bd=4,bg="black",fg="white").place(x=300,y=350)
-        tension=Label(self.ventana2,text='0,60V',bd=4,bg="black",fg="white").place(x=300,y=380)
-        eficiencia=Label(self.ventana2,text='8',bd=4,bg="black",fg="white").place(x=300,y=410)
-        temporada=Label(self.ventana2,text='2019',bd=4,bg="black",fg="white").place(x=300,y=440)
-        ppB=Label(self.ventana2,text='3',bd=4,bg="black",fg="white").place(x=300,y=470)
-        self.ventana2.mainloop()
-        
-    def revisar(self,x):
-        if x==1:
-            self.ventana1()
-        if x==2:
-            self.ventana2()
-
-                
-        
 
     def Ventana_About(self):
         #           _____________________________
@@ -586,7 +453,114 @@ class Main_Interface:
                     i+=1
             Button_CUSTOM_Off_TestDrive = Button( self.Root_Main, image = self.CUSTOM_Off_TestDrive, bd=0, command = lambda:self.seleccion_moviento(3)).place(x=679,y=256)
             x+=1
+    #######################################################################################################################################################################################################
 
+    def Tabla_Cambio(self):
+        self.Root_Main.destroy()
+        self.Main()
+    def Ventana_Tabla(self):
+        self.Root_Main.title("TABLA DE POSICIONES")
+        self.Root_Main.minsize(1200,800)
+        Label_Fondo = Label(self.Root_Main,image= self.Fondo_Blanco_Main).place(x=0,y=0)
+        Buttont = Button(self.Root_Main, text = "MAIN",font=("Comic Sans MS",10),justify=CENTER,bg="#800000",fg="white",command = self.Tabla_Cambio).place(x=1150,y=0)
+        
+
+        label_1 = Label(self.Root_Main, text = "Nombre",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0)
+        label_2 = Label(self.Root_Main, text = "Edad",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 1)
+        label_3 = Label(self.Root_Main, text = "Nacionalidad",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 2)
+        label_4 = Label(self.Root_Main, text = "Temporada",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 3)
+        label_5 = Label(self.Root_Main, text = "Participaciones",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 4)
+        label_6 = Label(self.Root_Main, text = "Destacadas",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 5)
+        label_7 = Label(self.Root_Main, text = "Cant. en podio",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 6)
+        label_8 = Label(self.Root_Main, text = "Movimiento",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 7)
+        label_9 = Label(self.Root_Main, text = "Score",bg = '#c60202',fg="white", font = ('Arial',18)).grid(row = 0, column = 8)
+        orden = Button(self.Root_Main, text = '↕',bg = '#c60202',fg="white", font = ('Arial', 12)).grid(row = 0, column = 10)
+
+        self.crear()
+        
+        self.Root_Main.mainloop()
+    def crear(self):
+        datos = self.fileR()
+        pilotos = 0
+        categoría = 1
+        for pilotos in range(0,10):
+            for categoría in range(0,9):
+                global label
+                label = StringVar()
+                Label(self.Root_Main, textvariable = label,bg = '#c60202',fg="white").grid(row = pilotos + 1, column = categoría, sticky=W)
+                label.set(datos[0][pilotos][categoría])
+    def fileR(self):
+        file=open("Pilotos.txt","r")
+        texto=file.read()
+        datos=eval(texto)
+        file.close()
+        return datos
+    def flecha(self,datos,i,j):
+        global label
+        if(i == 5):
+            fileW(datos)
+            return crear()
+        else:
+            temp = datos[0][i]
+            datos[0][i] = datos[0][j]
+            datos[0][j] = temp
+            return flecha(datos,i+1,j-1)
+    def fileW(self,com):
+        newfile = open("Pilotos.txt","w")
+        newfile.write(str(com))
+        newfile.close()
+        return com
+    def carro(self,i):
+        Lista = fileR()
+        Lista = Lista[0]
+        Carros = fileR()
+        Carros = Carros[1]
+        CAR = Lista[i][9]
+        línea = 0
+        while línea != len(Carros):
+            if(CAR == Carros[línea][0]):
+                return infocar(Carros,línea)
+            else:
+                línea +=1
+    def infocar(self,Carros,i):
+        info = Toplevel()
+        info.minsize(700,300)
+        info.resizable(width = NO,height = NO)
+
+        #LABELS DE CABECERA
+
+        N_Car = Label(info, text = "Nombre:", font = ('Arial',17)).place(x = 0,y = 0)
+        M_Car = Label(info, text = "Modelo:", font = ('Arial',17)).place(x = 0,y = 25)
+        P_Car = Label(info, text = "País:", font = ('Arial',17)).place(x = 0,y = 50)
+        E_Car = Label(info, text = "Estado:", font = ('Arial',17)).place(x = 0,y = 75)
+        C_Car = Label(info, text = "Consumo:", font = ('Arial',17)).place(x = 0,y = 100)
+        S_Car = Label(info, text = "Sensores:", font = ('Arial',17)).place(x = 0,y = 125)
+        Pe_Car = Label(info, text = "Peso(Kg):", font = ('Arial',17)).place(x = 0,y = 150)
+        Efi_Car = Label(info, text = "Eficiencia:", font = ('Arial',17)).place(x = 0,y = 175)
+        Se_Car = Label(info, text = "Temporada:", font = ('Arial',17)).place(x = 0,y = 200)
+        B_Car = Label(info, text = "Baterías:", font = ('Arial',17)).place(x = 0,y = 225)
+        P_B_Car = Label(info, text = "PpB:", font = ('Arial',17)).place(x = 0,y = 250)
+        T_B_Car = Label(info, text = "Tensión:", font = ('Arial',17)).place(x = 0,y = 275)
+        
+        #LA INFO DE CADA CARRO
+        Nombre = Label(info, text = Carros[i][0], font = ('Arial',15)).place(x = 100,y = 0)
+        Modelo = Label(info, text = Carros[i][1], font = ('Arial',15)).place(x = 100,y = 25)
+        País = Label(info, text = Carros[i][2], font = ('Arial',15)).place(x = 100,y = 50)
+
+        F_CAR=PhotoImage(file=Carros[i][3])
+        F_CARr=Label(info,image=F_CAR,width=200,height=100).place(x=500,y=0)
+        
+        Estado = Label(info, text = Carros[i][4], font = ('Arial',15)).place(x = 100,y = 75)
+        Consumo = Label(info, text = Carros[i][5], font = ('Arial',15)).place(x = 100,y = 100)
+        Sensores = Label(info, text = Carros[i][6], font = ('Arial',15)).place(x = 100,y = 125)
+        peso = Label(info, text = Carros[i][7], font = ('Arial',15)).place(x = 100,y = 150)
+        Eficiencia = Label(info, text = Carros[i][8], font = ('Arial',15)).place(x = 100,y = 175)
+        Season = Label(info, text = Carros[i][9], font = ('Arial',15)).place(x = 100,y = 200)
+        Baterías = Label(info, text = Carros[i][10], font = ('Arial',15)).place(x = 100,y = 225)
+        P_baterías = Label(info, text = Carros[i][11], font = ('Arial',15)).place(x = 100,y = 250)
+        T_Baterías = Label(info, text = Carros[i][12], font = ('Arial',15)).place(x = 100,y = 275)    
+
+        info.mainloop()
 
 #           ____________________________
 #__________/INICIAR
