@@ -85,11 +85,12 @@ class Main_Interface:
         self.moon_TestDrive = PhotoImage(file = 'luna.png')
         self.sun_TestDrive = PhotoImage(file = 'sol.png')
         self.bateria_llena_TestDrive = PhotoImage(file = 'bateria_llena.png')
-        self.velocidad_TestDrive = "Ninguno"
+        self.velocidad_TestDrive = 0
         self.pwm_controller_TestDrive = "Ninguno"
         self.Pedal_TestDrive = "Ninguno"
         self.Fondo_Blanco_Main = PhotoImage(file = "fondo_blanco.png")
         self.myCar_TestDrive.start()
+        
         #           _____________________________
         #__________/CONSTRUCTOR DE VENTANA
         self.Root_Main.title("Formula 1 - ADJ")
@@ -131,6 +132,7 @@ class Main_Interface:
         self.Root_Main.title("Formula 1 - ADJ")
         self.Root_Main.config(bg="gray",width=1200,height=800)
         self.Root_Main.resizable(width=0,height=0)
+        
         
         Label_Fondo_TestDrive = Label( self.Root_Main, image = self.Fondo_TestDrive, bd =0).place(x=0,y=0)
         Label_Volante = Label( self.Root_Main, image = self.Volante_TestDrive, bd =0).place(x=744,y=174)
@@ -238,7 +240,7 @@ class Main_Interface:
         x=0
         while(x<1):
             mns = str(comando)
-            myCar.send(mns)
+            self.myCar_TestDrive.send(mns)
             print ("Enviando mensaje: ",comando)
             x+=1
         #           ____________________________

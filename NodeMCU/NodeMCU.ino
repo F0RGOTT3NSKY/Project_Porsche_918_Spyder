@@ -35,10 +35,10 @@
  * Este servidor no funciona correctamente en las redes del TEC,
  * se recomienda crear un hotspot con el celular
  */
-const char* ssid = "Aparta 4";
-const char* password = "jjhd0921";
-//const char* ssid = "JJVV";
-//const char* password = "123456789";
+//const char* ssid = "Aparta 4";
+//const char* password = "jjhd0921";
+const char* ssid = "JJVV";
+const char* password = "123456789";
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -129,16 +129,16 @@ void setup() {
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
-  // ip estática para el servidor JJVV
-  //IPAddress ip(192,168,43,24);
-  //IPAddress gateway(192,168,43,1);
-  //IPAddress subnet(255,255,255,0);
-  //WiFi.config(ip, gateway, subnet);
-  // ip estática para el servidor Aparta 4
-  IPAddress ip(192,168,0,200);
-  IPAddress gateway(192,168,0,1);
+  //ip estática para el servidor JJVV
+  IPAddress ip(192,168,43,24);
+  IPAddress gateway(192,168,43,1);
   IPAddress subnet(255,255,255,0);
   WiFi.config(ip, gateway, subnet);
+  // ip estática para el servidor Aparta 4
+  //IPAddress ip(192,168,0,200);
+  //IPAddress gateway(192,168,0,1);
+  //IPAddress subnet(255,255,255,0);
+  //WiFi.config(ip, gateway, subnet);
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////*/
