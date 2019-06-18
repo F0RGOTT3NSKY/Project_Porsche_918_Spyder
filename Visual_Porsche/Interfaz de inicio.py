@@ -3,11 +3,7 @@
 from tkinter import *
 import random
 from random import randint
-from Test_Drive import *
- 
 
-
-TestDrive = Iniciar()
 
 root=Tk()
 root.title("Formula 1 - ADJ")
