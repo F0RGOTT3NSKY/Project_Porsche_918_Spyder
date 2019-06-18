@@ -65,24 +65,19 @@ custom = "CUSTOM:;"
 moon = PhotoImage(file = 'luna.png')
 sun = PhotoImage(file = 'sol.png')
 bateria_llena = PhotoImage(file = 'bateria_llena.png')
-
+velocidad = 0
+pwm_controller = "Ninguno"
+Pedal = "Ninguno"
 #           ____________________________
 #__________/VENTANA PRINCIPAL
 class Test_Drive_Ventana_Principal:
-    def __init__(self, Root_TestDrive, Fondo_TestDrive, Icono_TestDrive, Volante_TestDrive,
-                 Dir_Izq_Off_TestDrive, Dir_Der_Off_TestDrive, Pedal_Clutch_TestDrive,
-                 Pedal_Break_TestDrive, Pedal_Accelerator_TestDrive, Palanca_Dir_Izq_TestDrive,
-                 Palanca_Dir_Der_TestDrive, Emergency_TestDrive, Headlights_Off_TestDrive,
-                 Headlights_On_TestDrive, Drive_TestDrive, Reverse_TestDrive, ZIGZAG_Off_TestDrive,
-                 INFINITE_Off_TestDrive, CIRCLE_Off_TestDrive, Winner_TestDrive, CUSTOM_Off_TestDrive,
-                 Dir_Der_On_TestDrive, Dir_Izq_On_TestDrive, CIRCLE_On_TestDrive, ZIGZAG_On_TestDrive,
-                 INFINITE_On_TestDrive, CUSTOM1_On_TestDrive, CUSTOM2_On_TestDrive, CUSTOM3_On_TestDrive,
-                 Girar_D_TestDrive, Girar_I_TestDrive, Girar_0_TestDrive, Girar_D_On_TestDrive,
-                 Girar_I_On_TestDrive, Girar_0_On_TestDrive, Volante_D_50_TestDrive,
-                 Volante_D_90_TestDrive, Volante_I_50_TestDrive, Volante_I_90_TestDrive, myCar_TestDrive, derecha_Testdrive,
-                 izquierda_TestDrive, centro_TestDrive, direccional_der_TestDrive, direccional_izq_TestDrive, emergency_On_TestDrive,
-                 emergency_Off_TestDrive, frontales_On_TestDrive, frontales_Off_TestDrive, circle_TestDrive,
-                 zigzag_TestDrive, infinite_TestDrive, custom_TestDrive, moon_TestDrive, sun_TestDrive, bateria_llena_TestDrive):
+    def __init__(self, Root_TestDrive, Fondo_TestDrive, Icono_TestDrive, Volante_TestDrive, Dir_Izq_Off_TestDrive, Dir_Der_Off_TestDrive, Pedal_Clutch_TestDrive, Pedal_Break_TestDrive, Pedal_Accelerator_TestDrive,
+                 Palanca_Dir_Izq_TestDrive, Palanca_Dir_Der_TestDrive, Emergency_TestDrive, Headlights_Off_TestDrive, Headlights_On_TestDrive, Drive_TestDrive, Reverse_TestDrive, ZIGZAG_Off_TestDrive,
+                 INFINITE_Off_TestDrive, CIRCLE_Off_TestDrive, Winner_TestDrive, CUSTOM_Off_TestDrive, Dir_Der_On_TestDrive, Dir_Izq_On_TestDrive, CIRCLE_On_TestDrive, ZIGZAG_On_TestDrive,
+                 INFINITE_On_TestDrive, CUSTOM1_On_TestDrive, CUSTOM2_On_TestDrive, CUSTOM3_On_TestDrive, Girar_D_TestDrive, Girar_I_TestDrive, Girar_0_TestDrive, Girar_D_On_TestDrive,
+                 Girar_I_On_TestDrive, Girar_0_On_TestDrive, Volante_D_50_TestDrive, Volante_D_90_TestDrive, Volante_I_50_TestDrive, Volante_I_90_TestDrive, myCar_TestDrive, derecha_Testdrive,
+                 izquierda_TestDrive, centro_TestDrive, direccional_der_TestDrive, direccional_izq_TestDrive, emergency_On_TestDrive, emergency_Off_TestDrive, frontales_On_TestDrive, frontales_Off_TestDrive,
+                 circle_TestDrive, zigzag_TestDrive, infinite_TestDrive, custom_TestDrive, moon_TestDrive, sun_TestDrive, bateria_llena_TestDrive, velocidad_TestDrive, pwm_controller_TestDrive, Pedal_TestDrive):
         #           ____________________________
         #__________/VARIABLES PRIVADAS
         self.Root_TestDrive = Root_TestDrive
@@ -141,6 +136,9 @@ class Test_Drive_Ventana_Principal:
         self.moon_TestDrive = moon_TestDrive
         self.sun_TestDrive = sun_TestDrive
         self.bateria_llena_TestDrive = bateria_llena_TestDrive
+        self.velocidad_TestDrive = velocidad_TestDrive
+        self.pwm_controller_TestDrive = pwm_controller_TestDrive
+        self.Pedal_TestDrive = Pedal_TestDrive
         myCar_TestDrive.start()
         
         #           ____________________________
@@ -155,12 +153,12 @@ class Test_Drive_Ventana_Principal:
         Label_Dir_Izq_Off = Label( Root_TestDrive, image = Dir_Izq_Off_TestDrive, bd =0).place(x=348,y=195)
         Label_Dir_Der_Off = Label( Root_TestDrive, image = Dir_Der_Off_TestDrive, bd =0).place(x=505,y=195)
         Label_Bateria = Label( Root_TestDrive, image = bateria_llena_TestDrive, bd =0).place(x=812,y=205)
-        Button_Moon = Button( Root_TestDrive, image = moon_TestDrive, bd = 0).place(x=810,y=174)
+        Button_Moon = Button( Root_TestDrive, image = sun_TestDrive, bd = 0,command = lambda:self.thread_contar(Thread)).place(x=810,y=174)
         
 
-        Button_Pedal_Clutch_TestDrive = Button( Root_TestDrive, image = Pedal_Clutch_TestDrive, bd=0).place(x=245,y=440)
-        Button_Pedal_Break_TestDrive = Button( Root_TestDrive, image = Pedal_Break_TestDrive, bd=0).place(x=400,y=450)
-        Button_Pedal_Accelerator_TestDrive = Button( Root_TestDrive, image = Pedal_Accelerator_TestDrive, bd=0).place(x=514,y=440)
+        Button_Pedal_Clutch_TestDrive = Button( Root_TestDrive, image = Pedal_Clutch_TestDrive, bd=0, command = lambda:self.Gears(Thread)).place(x=245,y=440)
+        Button_Pedal_Break_TestDrive = Button( Root_TestDrive, image = Pedal_Break_TestDrive, command = lambda:self.pwm_control(Thread,3), bd=0).place(x=400,y=450)
+        Button_Pedal_Accelerator_TestDrive = Button( Root_TestDrive, image = Pedal_Accelerator_TestDrive, command = lambda:self.pwm_control(Thread,4), bd=0).place(x=514,y=440)
         
         Button_Palanca_Dir_Izq_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Izq_TestDrive, bd=0, command =lambda:self.thread_direccion_izquierda(Thread)).place(x=275,y=298)
         Button_Palanca_Dir_Der_TestDrive = Button( Root_TestDrive, image = Palanca_Dir_Der_TestDrive, bd=0, command =lambda:self.thread_direccion_derecha(Thread)).place(x=515,y=298)
@@ -169,8 +167,6 @@ class Test_Drive_Ventana_Principal:
         Button_Headlights_On_TestDrive1 = Button( Root_TestDrive, image = Headlights_On_TestDrive, command = self.Frontales_Off, bd =0).place(x=148,y=193)
         Button_Headlights_Off_TestDrive = Button( Root_TestDrive, image = Headlights_Off_TestDrive, command = self.Frontales_On, bd =0).place(x=148,y=193)
         
-        Button_Drive_TestDrive = Button( Root_TestDrive, image = Drive_TestDrive, bd=0).place(x=865,y=340)
-        Button_Reverse_TestDrive = Button( Root_TestDrive, image = Reverse_TestDrive, bd=0).place(x=865,y=367)
         Button_Winner_TestDrive = Button( Root_TestDrive, image = Winner_TestDrive, bd=0).place(x=833,y=174)
         
         Button_CIRCLE_Off_TestDrive = Button( Root_TestDrive, image = CIRCLE_Off_TestDrive, bd=0, command = lambda:self.seleccion_moviento(0)).place(x=679,y=218)
@@ -181,11 +177,98 @@ class Test_Drive_Ventana_Principal:
         Button_Girar_D = Button( Root_TestDrive, bd=0, image = Girar_D_TestDrive, command = lambda:self.thread_girar_derecha(Thread)).place(x=515,y=220)
         Button_Girar_I = Button( Root_TestDrive, bd=0, image = Girar_I_TestDrive, command = lambda:self.thread_girar_izquierda(Thread)).place(x=312,y=222)
         Button_Girar_0 = Button( Root_TestDrive, bd=0, image = Girar_0_TestDrive, command = lambda:self.thread_posicion_0(Thread)).place(x=416,y=360)
+
         
+                
         Root_TestDrive.mainloop()
         #           ____________________________
+        #__________/PWM
+    def Gears(self,Thread):
+        Button_Drive_TestDrive = Button( self.Root_TestDrive, image = self.Drive_TestDrive, bd=0, command = lambda:self.pwm_control(Thread,1)).place(x=865,y=340)
+        Button_Reverse_TestDrive = Button( self.Root_TestDrive, image = self.Reverse_TestDrive, bd=0, command = lambda:self.pwm_control(Thread,2)).place(x=865,y=367)
+        self.pwm_controller = "Ninguno"
+    def pwm(self):
+        print(self.Pedal_TestDrive,self.pwm_controller,self.velocidad_TestDrive)
+        if(self.Pedal_TestDrive=="avanzar" and self.pwm_controller=="Drive"):
+            x = 0
+            while(x<1 and self.velocidad_TestDrive<1020):
+                self.velocidad_TestDrive+=255
+                print(self.velocidad_TestDrive)
+                comando = "pwm:"+str(self.velocidad_TestDrive)+";"
+                t = threading.Thread(target = self.send(comando))
+                t.start()
+                time.sleep(0.01)
+                x+=1     
+        if(self.Pedal_TestDrive=="retroceder" and self.pwm_controller=="Drive"):
+            self.velocidad_TestDrive = 0
+            comando = "pwm:"+str(self.velocidad_TestDrive)+";"
+            t = threading.Thread(target = self.send(comando))
+            t.start()
+            print(self.velocidad_TestDrive)
+                
+        if(self.Pedal_TestDrive=="avanzar" and self.pwm_controller=="Reverse"):
+            x = 0
+            while(x<1 and self.velocidad_TestDrive>-1020):
+                self.velocidad_TestDrive-=255
+                print(self.velocidad_TestDrive)
+                comando = "pwm:"+str(self.velocidad_TestDrive)+";"
+                t = threading.Thread(target = self.send(comando))
+                t.start()
+                time.sleep(0.01)
+                x+=1 
+                
+                
+                
+        if(self.Pedal_TestDrive=="retroceder" and self.pwm_controller=="Reverse"):
+            #if(self.velocidad_TestDrive==0):
+            self.velocidad_TestDrive = 0
+            comando = "pwm:"+str(self.velocidad_TestDrive)+";"
+            t = threading.Thread(target = self.send(comando))
+            t.start()
+            print(self.velocidad_TestDrive)
+            #else:    
+                #while(self.velocidad_TestDrive<0):
+                    #if(self.velocidad_TestDrive==-255):
+                        #self.velocidad_TestDrive = 0
+                        #time.sleep(0.01)
+                        #comando = "pwm:"+str(self.velocidad_TestDrive)+";"
+                        #t = threading.Thread(target = self.send(comando))
+                        #t.start()
+                        #print(self.velocidad_TestDrive) 
+                    #else:
+                        #comando = "pwm:"+str(self.velocidad_TestDrive)+";"
+                        #t = threading.Thread(target = self.send(comando))
+                        #t.start()
+                        #print(self.velocidad_TestDrive)
+                        #time.sleep(0.01)
+                        #self.velocidad_TestDrive+=255
+                
+        else:
+            print("El auto esta en Neutral")
+            
+    def pwm_control(self,Thread,Control):
+        if(Control==1):
+            self.pwm_controller = "Drive"
+            
+            print(self.pwm_controller)
+        elif(Control==2):
+            self.pwm_controller = "Reverse"
+            print(self.pwm_controller)
+        elif(Control==3):
+            self.Pedal_TestDrive = "retroceder"
+            print(self.Pedal_TestDrive)
+            t = threading.Thread(target = self.pwm())
+            t.start()
+        elif(Control==4):
+            self.Pedal_TestDrive = "avanzar"
+            print(self.Pedal_TestDrive)
+            t = threading.Thread(target = self.pwm())
+            t.start() 
+        else:
+            print("El auto esta en Neutral")
+                                                 
+        #           ____________________________
         #__________/SEND NUDES
-
     def send (self,comando):
         x=0
         while(x<1):
@@ -195,28 +278,18 @@ class Test_Drive_Ventana_Principal:
             x+=1
         #           ____________________________
         #__________/SENSOR DE LUZ
-    def oscuro(self):
+    def contar(self):
         x=0
-        while(x<1):
-            Label_Moon = Label( self.Root_TestDrive, image = self.moon_TestDrive, bd = 0, bg = "black").place(x=867,y=176)
-            time.sleep(0.5)
-            Label_Sun = Label( self.Root_TestDrive, image = self.sun_TestDrive, bd = 0).place(x=867,y=176)
+        while(x>=0):
+            print(x)
+            comando = "lx:;"
+            t = threading.Thread(target = self.send(comando))
+            t.start()
+            time.sleep(2)
             x+=1
-    def thread_luz_oscuridad(self,Thread):
-        p = threading.Thread(target = self.oscuro)
+    def thread_contar(self,Thread):
+        p = threading.Thread(target = self.contar)
         p.start()
-    def sol(self):
-        x=0
-        while(x<1):
-            Label_Sun = Label( self.Root_TestDrive, image = self.sun_TestDrive, bd = 0).place(x=867,y=176)
-            time.sleep(0.5)
-            Label_Moon = Label( self.Root_TestDrive, image = self.moon_TestDrive, bd = 0, bg = "black").place(x=867,y=176)
-            x+=1
-    def thread_sol(self,Thread):
-        p = threading.Thread(target = self.sol)
-        p.start()
-    #def thread_luz(self,Thread):
-        
         #           ____________________________
         #__________/DIRECCION
                   
@@ -421,15 +494,10 @@ class Test_Drive_Ventana_Principal:
         
 #           ____________________________
 #__________/INICIAR
-Test_Drive_Ventana_Principal(Root, Fondo, Icono, Volante, Dir_Izq_Off, Dir_Der_Off,
-                             Pedal_Clutch, Pedal_Break, Pedal_Accelerator, Palanca_Dir_Izq,
-                             Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On, Drive,
-                             Reverse, ZIGZAG_Off, INFINITE_Off, CIRCLE_Off, Winner, CUSTOM_Off,
-                             Dir_Der_On, Dir_Izq_On, CIRCLE_On, ZIGZAG_On , INFINITE_On,
-                             CUSTOM1_On, CUSTOM2_On, CUSTOM3_On, Girar_D, Girar_I, Girar_0, Girar_D_On,
-                             Girar_I_On, Girar_0_On, Volante_D_50, Volante_D_90, Volante_I_50, Volante_I_90,
-                             myCar, derecha, izquierda, centro, direccional_der, direccional_izq, emergency_On,
-                             emergency_Off, frontales_On, frontales_Off, circle, zigzag, infinite, custom, moon, sun, bateria_llena)
+Test_Drive_Ventana_Principal(Root, Fondo, Icono, Volante, Dir_Izq_Off, Dir_Der_Off, Pedal_Clutch, Pedal_Break, Pedal_Accelerator, Palanca_Dir_Izq, Palanca_Dir_Der, Emergency, Headlights_Off, Headlights_On, Drive,
+                             Reverse, ZIGZAG_Off, INFINITE_Off, CIRCLE_Off, Winner, CUSTOM_Off, Dir_Der_On, Dir_Izq_On, CIRCLE_On, ZIGZAG_On , INFINITE_On, CUSTOM1_On, CUSTOM2_On, CUSTOM3_On, Girar_D, Girar_I, Girar_0, Girar_D_On,
+                             Girar_I_On, Girar_0_On, Volante_D_50, Volante_D_90, Volante_I_50, Volante_I_90,myCar, derecha, izquierda, centro, direccional_der, direccional_izq, emergency_On, emergency_Off, frontales_On,
+                             frontales_Off, circle, zigzag, infinite, custom, moon, sun, bateria_llena, velocidad, pwm_controller, Pedal)
 
 
 
