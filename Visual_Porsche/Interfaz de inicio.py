@@ -16,7 +16,7 @@ def ventana_principal():
     f1=PhotoImage(file='f1mini.gif')
     logo=Label(root,image=f1).place(x=10,y=10)
 
-    #### LABELS PERTENECIENTES A LA VENTANA DE ORIGEN #####
+
 
     escuderia=Label(root,text="Nombre de Escuderia:",font='helvetica 12',justify=CENTER,width="17",height="3",bg="black",fg="white")
     escuderia.place(x=10,y=150)
